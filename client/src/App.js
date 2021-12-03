@@ -1,11 +1,21 @@
 import React from "react";
-import TopBar from "./topbar/topbar";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import TopBar from "./components/TopBar/TopBar";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <React.Fragment>
+    <BrowserRouter>
       <TopBar />
-    </React.Fragment>
+      <Switch>
+        <Route path="/" exact component={Home} />
+      </Switch>
+    </BrowserRouter>
+    // <React.Fragment>
+    //   <TopBar />
+    //   <Home />
+    //  </React.Fragment>
   );
 }
 
