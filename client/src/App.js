@@ -5,16 +5,19 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import Write from "./pages/Write/Write";
 import Single from "./pages/Single/Single";
+import Settings from "./pages/Settings/Settings";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        {/* <Route path="/" exact component={Home} /> */}
         <Route path="/" exact component={Home} />
         <Route path="/write">
           <Write />
+        </Route>
+        <Route path="/settings">
+          <Settings />
         </Route>
         <Route path="/post/:postId">
           <Single />
