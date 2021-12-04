@@ -5,7 +5,7 @@ import "./Navbar.css";
 import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   const handleLogout = () => {};
 
   return (
@@ -38,7 +38,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="topListItem logoOut" onClick={handleLogout}>
-            LOGOUT
+            {user && "LOGOUT"}
           </li>
         </ul>
       </div>

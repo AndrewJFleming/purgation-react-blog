@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
@@ -10,10 +10,11 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 
 function App() {
-  const user = false;
+  const [user, setUser] = useState(false);
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar user={user} />
       <Switch>
         <Route path="/" exact>
           <Home />
