@@ -37,7 +37,7 @@ export default function Navbar() {
               WRITE
             </Link>
           </li>
-          <li className="topListItem" onClick={handleLogout}>
+          <li className="topListItem logoOut" onClick={handleLogout}>
             LOGOUT
           </li>
         </ul>

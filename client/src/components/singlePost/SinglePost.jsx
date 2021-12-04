@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./singlePost.css";
+import "./SinglePost.css";
 
 export default function SinglePost() {
   const [post, setPost] = useState({});
@@ -20,6 +20,13 @@ export default function SinglePost() {
         {post.photo && (
           <img src={post.photo} alt="" className="singlePostImg" />
         )}
+
+        <img
+          src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt=""
+          className="singlePostImg"
+        />
+
         <div className="singlePostInfo">
           <span className="singlePostAuthor">
             Author:
@@ -28,7 +35,7 @@ export default function SinglePost() {
             </Link>
           </span>
           <span className="singlePostDate">
-            {/* {new Date(post.createdAt).toDateString()} */}
+            {new Date(post.createdAt).toDateString()}
           </span>
         </div>
       </div>
