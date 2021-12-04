@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
@@ -10,22 +10,23 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 
 function App() {
+  const user = false;
   return (
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact>
+          <Home />
+        </Route>
         <Route path="/register">
-          <Register />
+          {!user ? <Register /> : <Redirect to="/" />}
         </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
+        <Route path="/login">{!user ? <Login /> : <Redirect to="/" />}</Route>
         <Route path="/write">
-          <Write />
+          {user ? <Write /> : <Redirect to="/register" />}
         </Route>
         <Route path="/settings">
-          <Settings />
+          {user ? <Settings /> : <Redirect to="/register" />}
         </Route>
         <Route path="/post/:postId">
           <Single />
