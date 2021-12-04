@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import Write from "./pages/Write/Write";
 import Single from "./pages/Single/Single";
 import Settings from "./pages/Settings/Settings";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/login">
+          <Login />
+        </Route>
         <Route path="/write">
           <Write />
         </Route>
