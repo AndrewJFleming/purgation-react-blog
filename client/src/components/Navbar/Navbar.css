@@ -37,7 +37,11 @@
   object-fit: cover;
   cursor: pointer;
 }
-
+.navLogo {
+  height: 40px;
+  object-fit: cover;
+  cursor: pointer;
+}
 .topList {
   display: flex;
   justify-content: center;

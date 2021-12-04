@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "./TopBar.css";
+import "./Navbar.css";
 import ProfileImage from "../../images/profile.jpg";
+import NavLogo from "../../images/logo.png";
 
-export default function TopBar() {
+export default function Navbar() {
   const handleLogout = () => {};
 
   return (
     <div className="top">
       <div className="topLeft">
-        <i className="topIcon fab fa-github-square"></i>
+        <Link to="/">
+          <img className="navLogo" src={NavLogo} alt="logo" />
+        </Link>
       </div>
       <div className="topCenter">
         <ul className="topList">

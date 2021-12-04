@@ -9,16 +9,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Old Standard TT", serif;
+
   color: rgb(255, 255, 255);
 }
 
 .headerTitleSm {
   font-size: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .headerTitleLg {
   font-size: 100px;
+  font-family: "Old Standard TT", serif;
 }
 
 .headerImg {
