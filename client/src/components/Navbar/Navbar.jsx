@@ -43,16 +43,31 @@ export default function Navbar({ user }) {
         </ul>
       </div>
       <div className="topRight">
-        <Link to="/settings">
-          <img
-            className="topImg"
-            src={
-              // {PF+user.profilePic}
-              ProfileImage
-            }
-            alt="profile"
-          />
-        </Link>
+        {user ? (
+          <Link to="/settings">
+            <img
+              className="topImg"
+              src={
+                // {PF+user.profilePic}
+                ProfileImage
+              }
+              alt="profile"
+            />
+          </Link>
+        ) : (
+          <ul className="topList">
+            <li className="topListItem">
+              <Link className="link" to="/login">
+                LOGIN
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/register">
+                REGISTER
+              </Link>
+            </li>
+          </ul>
+        )}
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>
