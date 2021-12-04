@@ -12,6 +12,7 @@ export default function Home() {
         "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       title: "Test Post 1",
       _id: "1",
+      username: "Andy",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
       categories: [
         { name: "testCat1" },
@@ -24,6 +25,7 @@ export default function Home() {
         "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       title: "Test Post 2",
       _id: "2",
+      username: "Andy",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
       categories: [
         { name: "testCat1" },
@@ -36,6 +38,7 @@ export default function Home() {
         "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       title: "Test Post 3",
       _id: "3",
+      username: "Andy",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
       categories: [
         { name: "testCat1" },

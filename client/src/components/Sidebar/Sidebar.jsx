@@ -10,7 +10,7 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT US</span>
         <img className="sidebarImage" src={sidebarImage} alt="" />
-        <p>
+        <p className="sidebarDesc">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
           necessitatibus nostrum illum reprehenderit.
         </p>
@@ -19,7 +19,13 @@ export default function Sidebar() {
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           <Link to="/" className="link">
-            <li className="sidebarListItem">Category</li>
+            <li className="sidebarListItem">Test Cat One</li>
+          </Link>
+          <Link to="/" className="link">
+            <li className="sidebarListItem">Test Cat Two</li>
+          </Link>
+          <Link to="/" className="link">
+            <li className="sidebarListItem">Test Cat Three</li>
           </Link>
         </ul>
       </div>
