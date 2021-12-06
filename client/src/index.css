@@ -19,6 +19,9 @@ p {
 a {
   color: #2c3d2b;
   font-family: "Open Sans", sans-serif;
+}
+
+.link {
   text-decoration: none;
 }
 

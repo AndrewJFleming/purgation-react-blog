@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Navbar user={user} />
       <Switch>
-        <Route path="/" exact>
+        <Route exact path="/">
           <Home />
         </Route>
         <Route path="/register">
