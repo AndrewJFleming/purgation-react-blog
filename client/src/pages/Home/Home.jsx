@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useLocation } from "react-router";
 
 import Posts from "../../components/Posts/Posts";
 import Header from "../../components/Header/Header";
@@ -7,94 +8,20 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Home.css";
 
 export default function Home() {
-  const [posts, setPosts] = useState([
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 1",
-    //   _id: "1",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 2",
-    //   _id: "2",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 3",
-    //   _id: "3",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 1",
-    //   _id: "1",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 2",
-    //   _id: "2",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-    // {
-    //   photo:
-    //     "https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    //   title: "Test Post 3",
-    //   _id: "3",
-    //   username: "Andy",
-    //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui necessitatibus nostrum illum reprehenderit.",
-    //   categories: [
-    //     { name: "testCat1" },
-    //     { name: "testCat2" },
-    //     { name: "testCat3" },
-    //   ],
-    // },
-  ]);
+  const [posts, setPosts] = useState([]);
+  //Grabbing value of search property from location obj
+  const { search } = useLocation();
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts");
+      //If the url includes a search param,
+      //it'll be included with the request to the backend.
+      // Response will only return data for posts matching search requirements.
+      const res = await axios.get("/posts" + search);
       setPosts(res.data);
     };
     fetchPosts();
-  }, []);
+  }, [search]);
 
   return (
     <div>
