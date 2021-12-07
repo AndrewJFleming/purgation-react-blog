@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
 import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
 
-export default function Navbar({ user }) {
+export default function Navbar() {
   const handleLogout = () => {};
 
   return (
