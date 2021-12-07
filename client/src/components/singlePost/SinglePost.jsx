@@ -38,7 +38,16 @@ export default function SinglePost() {
     } catch (err) {}
   };
 
-  const handleUpdate = async () => {};
+  const handleUpdate = async () => {
+    try {
+      await axios.put(`/posts/${post._id}`, {
+        username: user.username,
+        title,
+        description,
+      });
+      setUpdateMode(false);
+    } catch (err) {}
+  };
 
   return (
     <div className="singlePost">
@@ -48,21 +57,31 @@ export default function SinglePost() {
           src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt=""
         />
-        <h1 className="singlePostTitle">
-          {title}
-          {post.username === user?.username && (
-            <div className="singlePostEdit">
-              <i
-                className="singlePostIcon far fa-edit"
-                onClick={() => setUpdateMode(true)}
-              ></i>
-              <i
-                className="singlePostIcon far fa-trash-alt"
-                onClick={handleDelete}
-              ></i>
-            </div>
-          )}
-        </h1>
+        {updateMode ? (
+          <input
+            type="text"
+            value={title}
+            className="singlePostTitleInput"
+            autoFocus
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        ) : (
+          <h1 className="singlePostTitle">
+            {title}
+            {post.username === user?.username && (
+              <div className="singlePostEdit">
+                <i
+                  className="singlePostIcon far fa-edit"
+                  onClick={() => setUpdateMode(true)}
+                ></i>
+                <i
+                  className="singlePostIcon far fa-trash-alt"
+                  onClick={handleDelete}
+                ></i>
+              </div>
+            )}
+          </h1>
+        )}
         <div className="singlePostInfo">
           <span>
             Author:&nbsp;
@@ -74,7 +93,20 @@ export default function SinglePost() {
           </span>
           <span>{new Date(post.createdAt).toDateString()}</span>
         </div>
-        <p className="singlePostDesc">{description}</p>
+        {updateMode ? (
+          <textarea
+            className="singlePostDescInput"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        ) : (
+          <p className="singlePostDesc">{description}</p>
+        )}
+        {updateMode && (
+          <button className="singlePostButton" onClick={handleUpdate}>
+            Update
+          </button>
+        )}
       </div>
     </div>
   );
