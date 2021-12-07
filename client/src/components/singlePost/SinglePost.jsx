@@ -26,7 +26,17 @@ export default function SinglePost() {
     getPost();
   }, [path]);
 
-  const handleDelete = async () => {};
+  const handleDelete = async () => {
+    try {
+      //Unlike axios.post/axios.put, 2nd axios.delete param options, not the req body.
+      //To send a req body with DELETE req, use the data option.
+      await axios.delete(`/posts/${post._id}`, {
+        data: { username: user.username },
+      });
+      //Redirect to the homepage if delete was successful
+      window.location.replace("/");
+    } catch (err) {}
+  };
 
   const handleUpdate = async () => {};
 
