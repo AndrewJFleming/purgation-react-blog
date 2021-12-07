@@ -1,8 +1,29 @@
 import { useContext, useState } from "react";
+import axios from "axios";
+
 import "./Write.css";
+import { Context } from "../../context/Context";
 
 export default function Write() {
-  const handleSubmit = async (e) => {};
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  // const [file, setFile] = useState(null);
+  const { user } = useContext(Context);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newPost = {
+      username: user.username,
+      title,
+      description,
+    };
+    //Image upload logic
+    try {
+      const res = await axios.post("/posts", newPost);
+      //Redirect to single post page with respective id
+      window.location.replace("/post/" + res.data._id);
+    } catch (err) {}
+  };
 
   return (
     <div className="write">
@@ -17,6 +38,7 @@ export default function Write() {
           <label htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
           </label>
+          {/* Complete file upload functionality */}
           <input
             type="file"
             id="fileInput"
@@ -28,7 +50,7 @@ export default function Write() {
             placeholder="Title"
             className="writeInput"
             autoFocus={true}
-            onChange={(e) => {}}
+            onChange={(e) => setTitle(e.target.value)}
           />
         </div>
         <div className="writeFormGroup">
@@ -36,7 +58,7 @@ export default function Write() {
             placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
-            onChange={(e) => {}}
+            onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
         <button className="writeSubmit" type="submit">
