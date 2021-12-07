@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./SinglePost.css";
+import { Context } from "../../context/Context";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -13,6 +14,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const { user } = useContext(Context);
 
   useEffect(() => {
     const getPost = async () => {
@@ -38,10 +40,18 @@ export default function SinglePost() {
         />
         <h1 className="singlePostTitle">
           {title}
-          <div className="singlePostEdit">
-            <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
-          </div>
+          {post.username === user?.username && (
+            <div className="singlePostEdit">
+              <i
+                className="singlePostIcon far fa-edit"
+                onClick={() => setUpdateMode(true)}
+              ></i>
+              <i
+                className="singlePostIcon far fa-trash-alt"
+                onClick={handleDelete}
+              ></i>
+            </div>
+          )}
         </h1>
         <div className="singlePostInfo">
           <span>
