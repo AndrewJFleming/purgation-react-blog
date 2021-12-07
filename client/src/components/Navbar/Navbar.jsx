@@ -4,9 +4,14 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
+import { Context } from "../../context/Context";
 
 export default function Navbar() {
-  const handleLogout = () => {};
+  const { user, dispatch } = useContext(Context);
+
+  const handleLogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
 
   return (
     <div className="top">
