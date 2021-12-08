@@ -1,11 +1,36 @@
 import "./Settings.css";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import { useContext, useState } from "react";
+import axios from "axios";
 
+import Sidebar from "../../components/Sidebar/Sidebar";
+import { Context } from "../../context/Context";
 import ProfileImage from "../../images/profile.jpg";
 
 export default function Settings() {
+  // const [file, setFile] = useState(null);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState(false);
+
+  const { user, dispatch } = useContext(Context);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch({ type: "UPDATE_START" });
+    const updatedUser = {
+      userId: user._id,
+      username,
+      email,
+      password,
+    };
+    try {
+      const res = await axios.put("/users/" + user._id, updatedUser);
+      setSuccess(true);
+      dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "UPDATE_FAILURE" });
+    }
   };
 
   return (
@@ -30,11 +55,22 @@ export default function Settings() {
             />
           </div>
           <label>Username</label>
-          <input type="text" placeholder="Username" onChange={(e) => {}} />
+          <input
+            type="text"
+            placeholder={user.username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
           <label>Email</label>
-          <input type="email" placeholder="User Email" onChange={(e) => {}} />
+          <input
+            type="email"
+            placeholder={user.email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           <label>Password</label>
-          <input type="password" onChange={(e) => {}} />
+          <input
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button className="settingsSubmit" type="submit">
             Update
           </button>
