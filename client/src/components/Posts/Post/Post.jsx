@@ -24,8 +24,8 @@ export default function Post({ post }) {
       <p className="postDesc">{post.description}Description</p>
       <div className="postCats">
         {post.categories.map((c) => (
-          <span key={c._id} className="postCat">
-            {c.name}
+          <span key={c} className="postCat">
+            {c}
           </span>
         ))}
       </div>
