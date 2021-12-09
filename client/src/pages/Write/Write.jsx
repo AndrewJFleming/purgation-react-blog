@@ -3,6 +3,7 @@ import axios from "axios";
 
 import "./Write.css";
 import { Context } from "../../shared/context/Context";
+import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -69,19 +70,7 @@ export default function Write() {
         <button className="writeSubmit" type="submit">
           Publish
         </button>
-        {error && (
-          <h3
-            style={{
-              color: "darkred",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-              marginTop: "10px",
-              textAlign: "center",
-            }}
-          >
-            An error occured
-          </h3>
-        )}
+        {error && <ErrorPrompt />}
       </form>
     </div>
   );

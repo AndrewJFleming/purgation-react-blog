@@ -5,6 +5,7 @@ import axios from "axios";
 
 import "./SinglePost.css";
 import { Context } from "../../shared/context/Context";
+import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 
 export default function SinglePost() {
   const location = useLocation();
@@ -116,20 +117,7 @@ export default function SinglePost() {
             Update
           </button>
         )}
-        {error && (
-          <h3
-            style={{
-              color: "darkred",
-              fontWeight: "bold",
-              textTransform: "uppercase",
-              marginTop: "10px",
-              textAlign: "center",
-              cursor: "pointer",
-            }}
-          >
-            An error occured
-          </h3>
-        )}
+        {error && <ErrorPrompt />}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./Register.css";
+import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -60,19 +61,7 @@ export default function Register() {
           Login
         </Link>
       </button>
-      {error && (
-        <h3
-          style={{
-            color: "darkred",
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            marginTop: "10px",
-            textAlign: "center",
-          }}
-        >
-          An error occured
-        </h3>
-      )}
+      {error && <ErrorPrompt />}
     </div>
   );
 }
