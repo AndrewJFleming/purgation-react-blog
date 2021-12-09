@@ -8,10 +8,12 @@ export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   // const [file, setFile] = useState(null);
+  const [error, setError] = useState(false);
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(false);
     const newPost = {
       username: user.username,
       title,
@@ -22,7 +24,10 @@ export default function Write() {
       const res = await axios.post("/posts", newPost);
       //Redirect to single post page with respective id
       window.location.replace("/post/" + res.data._id);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
   };
 
   return (
@@ -64,6 +69,19 @@ export default function Write() {
         <button className="writeSubmit" type="submit">
           Publish
         </button>
+        {error && (
+          <h3
+            style={{
+              color: "darkred",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              marginTop: "10px",
+              textAlign: "center",
+            }}
+          >
+            An error occured
+          </h3>
+        )}
       </form>
     </div>
   );

@@ -22,6 +22,7 @@ export default function Register() {
       //Upon successful registration, redirect to login page
       res.data && window.location.replace("/login");
     } catch (err) {
+      console.log(err);
       setError(true);
     }
   };

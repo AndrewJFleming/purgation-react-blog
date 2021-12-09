@@ -28,6 +28,7 @@ export default function SinglePost() {
   }, [path]);
 
   const handleDelete = async () => {
+    setError(false);
     try {
       //Unlike axios.post/axios.put, 2nd axios.delete param options, not the req body.
       //To send a req body with DELETE req, use the data option.
@@ -37,11 +38,13 @@ export default function SinglePost() {
       //Redirect to the homepage if delete was successful
       window.location.replace("/");
     } catch (err) {
+      console.log(err);
       setError(true);
     }
   };
 
   const handleUpdate = async () => {
+    setError(false);
     try {
       await axios.put(`/posts/${post._id}`, {
         username: user.username,
@@ -49,7 +52,10 @@ export default function SinglePost() {
         description,
       });
       setUpdateMode(false);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
   };
 
   return (
