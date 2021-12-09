@@ -74,6 +74,13 @@ export default function Settings() {
           <button className="settingsSubmit" type="submit">
             Update
           </button>
+          {success && (
+            <span
+              style={{ color: "green", textAlign: "center", marginTop: "20px" }}
+            >
+              Profile update successful
+            </span>
+          )}
         </form>
       </div>
       <Sidebar />
