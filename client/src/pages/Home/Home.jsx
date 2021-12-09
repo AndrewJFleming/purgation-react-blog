@@ -3,7 +3,7 @@ import axios from "axios";
 import { useLocation } from "react-router";
 
 import Posts from "../../components/Posts/Posts";
-import Header from "../../components/Header/Header";
+import Banner from "../../components/Banner/Banner";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Home.css";
 
@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header />
+      <Banner />
       <div className="home">
         <Posts posts={posts} />
         <Sidebar />

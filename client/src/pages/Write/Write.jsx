@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import axios from "axios";
 
 import "./Write.css";
-import { Context } from "../../context/Context";
+import { Context } from "../../shared/context/Context";
 
 export default function Write() {
   const [title, setTitle] = useState("");

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useContext } from "react";
 
@@ -9,7 +9,7 @@ import Single from "./pages/Single/Single";
 import Settings from "./pages/Settings/Settings";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import { Context } from "./context/Context";
+import { Context } from "./shared/context/Context";
 
 function App() {
   const { user } = useContext(Context);

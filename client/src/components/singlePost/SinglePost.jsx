@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import "./SinglePost.css";
-import { Context } from "../../context/Context";
+import { Context } from "../../shared/context/Context";
 
 export default function SinglePost() {
   const location = useLocation();

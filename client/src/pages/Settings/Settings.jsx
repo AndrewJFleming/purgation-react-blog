@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 import Sidebar from "../../components/Sidebar/Sidebar";
-import { Context } from "../../context/Context";
+import { Context } from "../../shared/context/Context";
 import ProfileImage from "../../images/profile.jpg";
 
 export default function Settings() {

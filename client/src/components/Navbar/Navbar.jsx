@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
-import { Context } from "../../context/Context";
+import { Context } from "../../shared/context/Context";
 
 export default function Navbar() {
   const { user, dispatch } = useContext(Context);

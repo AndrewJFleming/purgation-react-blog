@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useContext, useRef } from "react";
 import axios from "axios";
 
-import { Context } from "../../context/Context";
+import { Context } from "../../shared/context/Context";
 import "./Login.css";
 
 export default function Login() {
