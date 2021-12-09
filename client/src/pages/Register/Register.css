@@ -53,9 +53,3 @@
   color: white;
   border-radius: 10px;
 }
-
-.errorPrompt {
-  color: "darkred";
-  font-weight: "bold";
-  margin-top: "10px";
-}

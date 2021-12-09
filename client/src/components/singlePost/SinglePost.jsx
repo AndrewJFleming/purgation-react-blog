@@ -14,6 +14,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [error, setError] = useState(false);
   const { user } = useContext(Context);
 
   useEffect(() => {
@@ -35,7 +36,9 @@ export default function SinglePost() {
       });
       //Redirect to the homepage if delete was successful
       window.location.replace("/");
-    } catch (err) {}
+    } catch (err) {
+      setError(true);
+    }
   };
 
   const handleUpdate = async () => {
@@ -106,6 +109,20 @@ export default function SinglePost() {
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
           </button>
+        )}
+        {error && (
+          <h3
+            style={{
+              color: "darkred",
+              fontWeight: "bold",
+              textTransform: "uppercase",
+              marginTop: "10px",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
+            An error occured
+          </h3>
         )}
       </div>
     </div>

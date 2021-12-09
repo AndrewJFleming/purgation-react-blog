@@ -66,6 +66,7 @@ export default function Register() {
             fontWeight: "bold",
             textTransform: "uppercase",
             marginTop: "10px",
+            textAlign: "center",
           }}
         >
           An error occured
