@@ -1,5 +1,5 @@
 import "./Settings.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -32,6 +32,13 @@ export default function Settings() {
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
+
+  //Fill initial state with logged in user creds so we don't update blank values.
+  useEffect(() => {
+    setUsername(user.username);
+    setEmail(user.email);
+    setPassword(user.password);
+  }, [user]);
 
   return (
     <div className="settings">
