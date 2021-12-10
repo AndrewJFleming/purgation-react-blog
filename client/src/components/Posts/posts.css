@@ -6,11 +6,17 @@
 }
 
 .noResults {
+  width: 100%;
+  padding-top: 15px;
   text-align: center;
-  color: darkred;
-  font-weight: bold;
 }
 
-.noResultsWrapper {
-  width: 100%;
+.noResults p {
+  color: darkred;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.noResults a {
+  text-decoration: underline;
 }
