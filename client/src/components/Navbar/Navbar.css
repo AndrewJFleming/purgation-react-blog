@@ -77,3 +77,9 @@
   cursor: pointer;
   margin-left: 15px;
 }
+
+.searchInput {
+  font-size: 1.3rem;
+  margin-left: 15px;
+  max-width: 100px;
+}

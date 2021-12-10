@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./Navbar.css";
@@ -7,10 +7,23 @@ import NavLogo from "../../images/logo.png";
 import { Context } from "../../shared/context/Context";
 
 export default function Navbar() {
+  const [search, setSearch] = useState("");
   const { user, dispatch } = useContext(Context);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+      console.log("pressed");
+    }
+  };
+  const handleSearch = () => {
+    if (search) {
+      window.location.replace("/?title=" + search);
+    }
   };
 
   return (
@@ -73,7 +86,15 @@ export default function Navbar() {
             </li>
           </ul>
         )}
-        <i className="topSearchIcon fas fa-search"></i>
+        <input
+          type="text"
+          placeholder="Title"
+          className="searchInput"
+          autoFocus={true}
+          onKeyPress={handleKeyPress}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <i className="topSearchIcon fas fa-search" onClick={handleSearch}></i>
       </div>
     </div>
   );
