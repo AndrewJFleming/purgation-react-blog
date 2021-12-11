@@ -21,11 +21,13 @@ export default function Post({ post }) {
           {new Date(post.createdAt).toDateString()}
         </span>
       </div>
-      <p className="postDesc">{post.description}Description</p>
+      <p className="postDesc">{post.description}</p>
       <div className="postCats">
         {post.categories.map((c) => (
           <span key={c} className="postCat">
-            {c}
+            <Link to={`/?cat=${c}`} className="link">
+              {c}
+            </Link>
           </span>
         ))}
       </div>

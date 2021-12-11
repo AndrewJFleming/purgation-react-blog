@@ -23,7 +23,7 @@ export default function Write() {
     console.log(categories);
   }, []);
 
-  function handleCheckboxChange(item: string) {
+  function handleCheckboxChange(item) {
     //Make a copy of the original set rather than mutating it
     const newSelectedCats = new Set(selectedCats);
     if (!newSelectedCats.has(item)) {
