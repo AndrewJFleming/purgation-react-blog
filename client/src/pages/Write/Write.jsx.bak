@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 
 import "./Write.css";
@@ -9,43 +9,16 @@ export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   // const [file, setFile] = useState(null);
-  const [categories, setCategories] = useState([]); //Default empty array as cats will be array of objs.
-  const [selectedCats, setSelectedCats] = useState(new Set());
   const [error, setError] = useState(false);
   const { user } = useContext(Context);
-
-  useEffect(() => {
-    const getCats = async () => {
-      const res = await axios.get("/categories");
-      setCategories(res.data);
-    };
-    getCats();
-    console.log(categories);
-  }, []);
-
-  function handleCheckboxChange(item: string) {
-    //Make a copy of the original set rather than mutating it
-    const newSelectedCats = new Set(selectedCats);
-    if (!newSelectedCats.has(item)) {
-      newSelectedCats.add(item);
-    } else {
-      newSelectedCats.delete(item);
-    }
-    setSelectedCats(newSelectedCats);
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
-
-    //Convert Set into an array prior to saving to db with other data.
-    const catsArray = [...selectedCats];
-
     const newPost = {
       username: user.username,
       title,
       description,
-      categories: catsArray,
     };
     //Image upload logic
     try {
@@ -93,18 +66,6 @@ export default function Write() {
             className="writeInput writeText"
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
-        </div>
-        <div>
-          {categories.map((cat) => (
-            <div>
-              <label>{cat.name}</label>
-              <input
-                type="checkbox"
-                checked={selectedCats.has(cat.name)}
-                onChange={() => handleCheckboxChange(cat.name)}
-              />
-            </div>
-          ))}
         </div>
         <button className="writeSubmit" type="submit">
           Publish
