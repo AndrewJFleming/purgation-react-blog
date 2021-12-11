@@ -13,19 +13,13 @@ export default function Write() {
   const [categories, setCategories] = useState([]); //Default empty array as cats will be array of objs.
   const [selectedCats, setSelectedCats] = useState(new Set());
   const [error, setError] = useState(false);
-  const [showNewCat, setShowNewCat] = useState(false);
   const { user } = useContext(Context);
 
-  const getCats = async () => {
-    const res = await axios.get("/categories");
-    setCategories(res.data);
-  };
-
   useEffect(() => {
-    // const getCats = async () => {
-    //   const res = await axios.get("/categories");
-    //   setCategories(res.data);
-    // };
+    const getCats = async () => {
+      const res = await axios.get("/categories");
+      setCategories(res.data);
+    };
     getCats();
     console.log(categories);
   }, []);
@@ -63,14 +57,6 @@ export default function Write() {
       console.log(err);
       setError(true);
     }
-  };
-
-  const handleShow = () => {
-    setShowNewCat(true);
-  };
-
-  const handleCancel = () => {
-    setShowNewCat(false);
   };
 
   return (
@@ -128,9 +114,6 @@ export default function Write() {
               </li>
             ))}
           </ul>
-          <span className="showNewCat" onClick={handleShow}>
-            New category
-          </span>
         </div>
         <div className="writeFormGroup writeSubmit">
           <button className="writeSubmit" type="submit">
@@ -139,9 +122,6 @@ export default function Write() {
           {error && <ErrorPrompt />}
         </div>
       </form>
-      {showNewCat && (
-        <NewCategory handleCancel={handleCancel} fetchCats={getCats} />
-      )}
     </div>
   );
 }
