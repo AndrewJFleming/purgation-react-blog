@@ -129,7 +129,7 @@ export default function Write() {
             ))}
           </ul>
           <span className="showNewCat" onClick={handleShow}>
-            New category
+            Edit/Create
           </span>
         </div>
         <div className="writeFormGroup writeSubmit">
@@ -140,7 +140,11 @@ export default function Write() {
         </div>
       </form>
       {showNewCat && (
-        <NewCategory handleCancel={handleCancel} fetchCats={getCats} />
+        <NewCategory
+          handleCancel={handleCancel}
+          fetchCats={getCats}
+          categories={categories}
+        />
       )}
     </div>
   );

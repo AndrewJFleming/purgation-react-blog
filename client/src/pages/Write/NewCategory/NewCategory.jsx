@@ -3,7 +3,7 @@ import axios from "axios";
 
 import "./NewCategory.css";
 
-export const NewCategory = ({ handleCancel, fetchCats }) => {
+export const NewCategory = ({ handleCancel, fetchCats, categories }) => {
   const [newCat, setNewCat] = useState("");
 
   const handleCreate = async (e) => {
@@ -19,7 +19,16 @@ export const NewCategory = ({ handleCancel, fetchCats }) => {
       console.log(err);
     }
     fetchCats();
-    handleCancel();
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`/categories/${id}`);
+      console.log(`Deleted ${id}`);
+    } catch (err) {
+      console.log(err);
+    }
+    fetchCats();
   };
 
   return (
@@ -35,6 +44,18 @@ export const NewCategory = ({ handleCancel, fetchCats }) => {
         <button onClick={handleCreate}>Create</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
+      <ul className="writeCats">
+        <h3>Categories</h3>
+        {categories.map((cat) => (
+          <li>
+            <i
+              className="singlePostIcon far fa-trash-alt"
+              onClick={() => handleDelete(cat._id)}
+            ></i>
+            {cat.name}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
