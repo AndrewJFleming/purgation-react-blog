@@ -14,6 +14,7 @@ export default function SinglePost() {
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [categories, setCategories] = useState([]);
   const [updateMode, setUpdateMode] = useState(false);
   const [error, setError] = useState(false);
   const { user } = useContext(Context);
@@ -24,6 +25,7 @@ export default function SinglePost() {
       setPost(res.data);
       setTitle(res.data.title);
       setDescription(res.data.description);
+      setCategories(res.data.categories);
     };
     getPost();
   }, [path]);
@@ -117,6 +119,15 @@ export default function SinglePost() {
             Update
           </button>
         )}
+        <div className="singlePostCats">
+          {categories.map((c) => (
+            <span key={c} className="singlePostCat">
+              <Link to={`/?cat=${c}`} className="link">
+                {c}
+              </Link>
+            </span>
+          ))}
+        </div>
         {error && <ErrorPrompt />}
       </div>
     </div>
