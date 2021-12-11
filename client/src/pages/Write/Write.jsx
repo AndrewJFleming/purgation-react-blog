@@ -60,14 +60,17 @@ export default function Write() {
 
   return (
     <div className="write">
-      <img
-        className="writeImg"
-        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt=""
-      />
+      <div className="writeImgWrapper">
+        <img
+          className="writeImg"
+          src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+          alt=""
+        />
+      </div>
 
       <form className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroup">
+          <h3>Post Image</h3>
           <label htmlFor="fileInput">
             <i className="writeIcon fas fa-plus"></i>
           </label>
@@ -78,6 +81,8 @@ export default function Write() {
             style={{ display: "none" }}
             onChange={(e) => {}}
           />
+        </div>
+        <div className="writeFormGroup">
           <input
             type="text"
             placeholder="Title"
@@ -94,22 +99,27 @@ export default function Write() {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
-        <div>
-          {categories.map((cat) => (
-            <div>
-              <label>{cat.name}</label>
-              <input
-                type="checkbox"
-                checked={selectedCats.has(cat.name)}
-                onChange={() => handleCheckboxChange(cat.name)}
-              />
-            </div>
-          ))}
+        <div className="writeFormGroup">
+          <ul className="writeCats">
+            <h3>Categories</h3>
+            {categories.map((cat) => (
+              <li>
+                <input
+                  type="checkbox"
+                  checked={selectedCats.has(cat.name)}
+                  onChange={() => handleCheckboxChange(cat.name)}
+                />
+                <label>{cat.name}</label>
+              </li>
+            ))}
+          </ul>
         </div>
-        <button className="writeSubmit" type="submit">
-          Publish
-        </button>
-        {error && <ErrorPrompt />}
+        <div className="writeFormGroup writeSubmit">
+          <button className="writeSubmit" type="submit">
+            Publish
+          </button>
+          {error && <ErrorPrompt />}
+        </div>
       </form>
     </div>
   );
