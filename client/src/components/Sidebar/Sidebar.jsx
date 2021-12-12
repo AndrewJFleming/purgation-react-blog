@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React from "react";
 
 import "./Sidebar.css";
 import sidebarImage from "../../images/bigLogo.png";
 
 export default function Sidebar() {
-  const [cats, setCats] = useState([]);
+  // const [cats, setCats] = useState([]);
 
-  useEffect(() => {
-    const getCats = async () => {
-      const res = await axios.get("/categories");
-      setCats(res.data);
-    };
-    getCats();
-  }, []);
+  // useEffect(() => {
+  //   const getCats = async () => {
+  //     const res = await axios.get("/categories");
+  //     setCats(res.data);
+  //   };
+  //   getCats();
+  // }, []);
 
   return (
     <div className="sidebar">
@@ -26,7 +24,7 @@ export default function Sidebar() {
           necessitatibus nostrum illum reprehenderit.
         </p>
       </div>
-      <div className="sidebarItem">
+      {/* <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           {cats.map((c) => (
@@ -35,7 +33,7 @@ export default function Sidebar() {
             </Link>
           ))}
         </ul>
-      </div>
+      </div> */}
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">

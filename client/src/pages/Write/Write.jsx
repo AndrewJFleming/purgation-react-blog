@@ -1,58 +1,29 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 
 import "./Write.css";
 import { Context } from "../../shared/context/Context";
 import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
-import { NewCategory } from "./NewCategory/NewCategory";
 
 export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   // const [file, setFile] = useState(null);
-  const [categories, setCategories] = useState([]); //Default empty array as cats will be array of objs.
-  const [selectedCats, setSelectedCats] = useState(new Set());
+  const [categories, setCategories] = useState([]);
+  const [newCategory, setNewCategory] = useState(null);
+  const [existsPrompt, setExistsPrompt] = useState(false);
   const [error, setError] = useState(false);
-  const [showNewCat, setShowNewCat] = useState(false);
   const { user } = useContext(Context);
-
-  const getCats = async () => {
-    const res = await axios.get("/categories");
-    setCategories(res.data);
-  };
-
-  useEffect(() => {
-    // const getCats = async () => {
-    //   const res = await axios.get("/categories");
-    //   setCategories(res.data);
-    // };
-    getCats();
-    console.log(categories);
-  }, []);
-
-  function handleCheckboxChange(item) {
-    //Make a copy of the original set rather than mutating it
-    const newSelectedCats = new Set(selectedCats);
-    if (!newSelectedCats.has(item)) {
-      newSelectedCats.add(item);
-    } else {
-      newSelectedCats.delete(item);
-    }
-    setSelectedCats(newSelectedCats);
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(false);
 
-    //Convert Set into an array prior to saving to db with other data.
-    const catsArray = [...selectedCats];
-
     const newPost = {
       username: user.username,
       title,
       description,
-      categories: catsArray,
+      categories,
     };
     //Image upload logic
     try {
@@ -65,12 +36,25 @@ export default function Write() {
     }
   };
 
-  const handleShow = () => {
-    setShowNewCat(true);
+  const handlePush = () => {
+    const exists = categories.includes(newCategory);
+    if (!exists && newCategory) {
+      setCategories((categories) => [...categories, newCategory]);
+      setNewCategory("");
+    } else if (!newCategory) {
+      console.log("blank");
+    } else {
+      setExistsPrompt(true);
+      setTimeout(() => {
+        setExistsPrompt(false);
+      }, 2000);
+      setNewCategory("");
+    }
   };
 
-  const handleCancel = () => {
-    setShowNewCat(false);
+  const handleDelete = (targetCat) => {
+    const newArray = categories.filter((item) => item !== targetCat);
+    setCategories(newArray);
   };
 
   return (
@@ -115,22 +99,29 @@ export default function Write() {
           ></textarea>
         </div>
         <div className="writeFormGroup">
-          <ul className="writeCats">
-            <h3>Categories</h3>
-            {categories.map((cat) => (
-              <li>
-                <input
-                  type="checkbox"
-                  checked={selectedCats.has(cat.name)}
-                  onChange={() => handleCheckboxChange(cat.name)}
-                />
-                <label>{cat.name}</label>
-              </li>
-            ))}
-          </ul>
-          <span className="showNewCat" onClick={handleShow}>
-            Edit/Create
+          <h3>Categories</h3>
+          <input
+            type="text"
+            placeholder="Category name"
+            className="NewCatInput"
+            value={newCategory}
+            autoFocus={true}
+            onChange={(e) => setNewCategory(e.target.value)}
+          />
+          <span className="showNewCat" onClick={() => handlePush(newCategory)}>
+            Add
           </span>
+          {categories.map((cat) => (
+            <li>
+              <i
+                className="singlePostIcon far fa-trash-alt"
+                onClick={() => handleDelete(cat)}
+              ></i>
+              {cat}
+            </li>
+          ))}
+          {existsPrompt && <p>Already exists...</p>}
+          <ul className="writeCats"></ul>
         </div>
         <div className="writeFormGroup writeSubmit">
           <button className="writeSubmit" type="submit">
@@ -139,13 +130,6 @@ export default function Write() {
           {error && <ErrorPrompt />}
         </div>
       </form>
-      {showNewCat && (
-        <NewCategory
-          handleCancel={handleCancel}
-          fetchCats={getCats}
-          categories={categories}
-        />
-      )}
     </div>
   );
 }
