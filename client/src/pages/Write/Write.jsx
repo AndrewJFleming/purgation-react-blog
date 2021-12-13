@@ -52,7 +52,7 @@ export default function Write() {
     }
   };
 
-  const handleDelete = (targetCat) => {
+  const handleRemove = (targetCat) => {
     const newArray = categories.filter((item) => item !== targetCat);
     setCategories(newArray);
   };
@@ -125,7 +125,7 @@ export default function Write() {
                     <li>
                       <i
                         className="writeCatIcon far fa-trash-alt"
-                        onClick={() => handleDelete(cat)}
+                        onClick={() => handleRemove(cat)}
                       ></i>
                       <label>{cat}</label>
                     </li>
@@ -133,15 +133,6 @@ export default function Write() {
                 ) : (
                   <p className="noCats">Nothing added yet...</p>
                 )}
-                {/* {categories.map((cat) => (
-                  <li>
-                    <i
-                      className="writeCatIcon far fa-trash-alt"
-                      onClick={() => handleDelete(cat)}
-                    ></i>
-                    <label>{cat}</label>
-                  </li>
-                ))} */}
               </ul>
             </div>
           </div>
