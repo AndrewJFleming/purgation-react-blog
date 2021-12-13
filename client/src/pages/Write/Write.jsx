@@ -47,7 +47,7 @@ export default function Write() {
       setExistsPrompt(true);
       setTimeout(() => {
         setExistsPrompt(false);
-      }, 2000);
+      }, 3000);
       setNewCategory("");
     }
   };
@@ -119,7 +119,7 @@ export default function Write() {
             </div>
             <div className="addCatRight">
               <ul className="catList">
-                <h5>Categories to be added:</h5>
+                <h4>Categories to be added:</h4>
                 {categories.length ? (
                   categories.map((cat) => (
                     <li>
