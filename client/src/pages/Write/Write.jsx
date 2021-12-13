@@ -100,28 +100,51 @@ export default function Write() {
         </div>
         <div className="writeFormGroup">
           <h3>Categories</h3>
-          <input
-            type="text"
-            placeholder="Category name"
-            className="NewCatInput"
-            value={newCategory}
-            autoFocus={true}
-            onChange={(e) => setNewCategory(e.target.value)}
-          />
-          <span className="showNewCat" onClick={() => handlePush(newCategory)}>
-            Add
-          </span>
-          {categories.map((cat) => (
-            <li>
-              <i
-                className="singlePostIcon far fa-trash-alt"
-                onClick={() => handleDelete(cat)}
-              ></i>
-              {cat}
-            </li>
-          ))}
-          {existsPrompt && <p>Already exists...</p>}
-          <ul className="writeCats"></ul>
+          <div className="addCatWrapper">
+            <div className="addCatLeft">
+              <input
+                type="text"
+                placeholder="Category name"
+                className="addCatInput"
+                value={newCategory}
+                autoFocus={true}
+                onChange={(e) => setNewCategory(e.target.value)}
+              />
+              <span className="addCat" onClick={() => handlePush(newCategory)}>
+                Add
+              </span>
+              {existsPrompt && (
+                <p className="existsPrompt">Already exists...</p>
+              )}
+            </div>
+            <div className="addCatRight">
+              <ul className="catList">
+                <h5>Categories to be added:</h5>
+                {categories.length ? (
+                  categories.map((cat) => (
+                    <li>
+                      <i
+                        className="writeCatIcon far fa-trash-alt"
+                        onClick={() => handleDelete(cat)}
+                      ></i>
+                      <label>{cat}</label>
+                    </li>
+                  ))
+                ) : (
+                  <p className="noCats">Nothing added yet...</p>
+                )}
+                {/* {categories.map((cat) => (
+                  <li>
+                    <i
+                      className="writeCatIcon far fa-trash-alt"
+                      onClick={() => handleDelete(cat)}
+                    ></i>
+                    <label>{cat}</label>
+                  </li>
+                ))} */}
+              </ul>
+            </div>
+          </div>
         </div>
         <div className="writeFormGroup writeSubmit">
           <button className="writeSubmit" type="submit">
