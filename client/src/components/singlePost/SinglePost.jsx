@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -61,6 +61,10 @@ export default function SinglePost() {
     }
   };
 
+  const handleCancel = () => {
+    setUpdateMode(false);
+  };
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
@@ -112,22 +116,25 @@ export default function SinglePost() {
             onChange={(e) => setDescription(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc">{description}</p>
+          <React.Fragment>
+            <p className="singlePostDesc">{description}</p>
+            <div className="singlePostCats">
+              {categories.map((c) => (
+                <span key={c} className="singlePostCat">
+                  <Link to={`/?cat=${c}`} className="link">
+                    {c}
+                  </Link>
+                </span>
+              ))}
+            </div>
+          </React.Fragment>
         )}
         {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
-            Update
-          </button>
+          <div className="singlePostButtons">
+            <button onClick={handleCancel}>Cancel</button>
+            <button onClick={handleUpdate}>Update</button>
+          </div>
         )}
-        <div className="singlePostCats">
-          {categories.map((c) => (
-            <span key={c} className="singlePostCat">
-              <Link to={`/?cat=${c}`} className="link">
-                {c}
-              </Link>
-            </span>
-          ))}
-        </div>
         {error && <ErrorPrompt />}
       </div>
     </div>

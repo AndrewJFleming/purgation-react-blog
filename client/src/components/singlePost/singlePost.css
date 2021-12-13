@@ -87,16 +87,25 @@
 .singlePostDescInput:focus {
   outline: none;
 }
-.singlePostButton {
+.singlePostButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+.singlePostButtons button {
   width: 100px;
   border: none;
-  background-color: teal;
+  background-color: #2c3d2b;
   padding: 5px;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  align-self: flex-end;
   margin-top: 20px;
+}
+.singlePostButtons button:first-child {
+  color: black;
+  background-color: rgba(255, 210, 211, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  margin-right: 10px;
 }
 
 .singlePostCats {
