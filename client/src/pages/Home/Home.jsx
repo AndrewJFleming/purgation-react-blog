@@ -18,7 +18,12 @@ export default function Home() {
       //it'll be included with the request to the backend.
       // Response will only return data for posts matching search requirements.
       const res = await axios.get("/posts" + search);
-      setPosts(res.data);
+
+      //Sort posts by newest date prior to setting state
+      const postsDescending = res.data.sort(function (a, b) {
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      });
+      setPosts(postsDescending);
     };
     fetchPosts();
   }, [search]);

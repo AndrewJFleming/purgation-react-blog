@@ -29,6 +29,7 @@ export default function SinglePost() {
       setTitle(res.data.title);
       setDescription(res.data.description);
       setCategories(res.data.categories);
+      console.log(res.data);
     };
     getPost();
   }, [path]);
