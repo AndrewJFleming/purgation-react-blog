@@ -1,18 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "./Sidebar.css";
 import sidebarImage from "../../images/bigLogo.png";
 
 export default function Sidebar() {
-  // const [cats, setCats] = useState([]);
+  const [featuredPosts, setFeaturedPosts] = useState([]);
 
-  // useEffect(() => {
-  //   const getCats = async () => {
-  //     const res = await axios.get("/categories");
-  //     setCats(res.data);
-  //   };
-  //   getCats();
-  // }, []);
+  useEffect(() => {
+    const getFeaturedPosts = async () => {
+      const res = await axios.get("/posts");
+      const featured = res.data.filter((x) => !!x.featured);
+      setFeaturedPosts(featured);
+    };
+    getFeaturedPosts();
+  }, []);
 
   return (
     <div className="sidebar">
@@ -24,16 +27,16 @@ export default function Sidebar() {
           necessitatibus nostrum illum reprehenderit.
         </p>
       </div>
-      {/* <div className="sidebarItem">
-        <span className="sidebarTitle">CATEGORIES</span>
+      <div className="sidebarItem">
+        <span className="sidebarTitle">FEATURED</span>
         <ul className="sidebarList">
-          {cats.map((c) => (
-            <Link key={c._id} to={`/?cat=${c.name}`} className="link">
-              <li className="sidebarListItem">{c.name}</li>
+          {featuredPosts.map((f) => (
+            <Link key={f._id} to={`/post/${f._id}`} className="link">
+              <li className="sidebarListItem">{f.title}</li>
             </Link>
           ))}
         </ul>
-      </div> */}
+      </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">

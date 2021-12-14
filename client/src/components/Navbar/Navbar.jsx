@@ -22,7 +22,7 @@ export default function Navbar() {
   };
   const handleSearch = () => {
     if (search) {
-      window.location.replace("/?title=" + search);
+      window.location.replace("/?search=" + search);
     }
   };
 

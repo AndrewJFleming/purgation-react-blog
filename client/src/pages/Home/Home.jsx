@@ -14,9 +14,8 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      //If the url includes a search param,
-      //it'll be included with the request to the backend.
-      // Response will only return data for posts matching search requirements.
+      //If the url includes a search param it'll be included with the request to the backend.
+      //Response will only return data for posts matching search requirements.
       const res = await axios.get("/posts" + search);
 
       //Sort posts by newest date prior to setting state
