@@ -7,7 +7,7 @@ import "./SinglePost.css";
 import { Context } from "../../shared/context/Context";
 import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 import { AddCategories } from "../../shared/components/AddCategories/AddCategories";
-
+import { CheckFeatured } from "../../shared/components/CheckFeatured/CheckFeatured";
 export default function SinglePost() {
   const location = useLocation();
   //Target third piece result of split method (id param)
@@ -16,6 +16,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [categories, setCategories] = useState([]);
+  const [featured, setFeatured] = useState(false);
   const [updateMode, setUpdateMode] = useState(false);
   const [error, setError] = useState(false);
   const { user } = useContext(Context);
@@ -27,6 +28,7 @@ export default function SinglePost() {
       setTitle(res.data.title);
       setDescription(res.data.description);
       setCategories(res.data.categories);
+      setFeatured(res.data.featured);
     };
     getPost();
   }, [path]);
@@ -55,6 +57,7 @@ export default function SinglePost() {
         title,
         description,
         categories,
+        featured,
       });
       setUpdateMode(false);
     } catch (err) {
@@ -122,10 +125,24 @@ export default function SinglePost() {
               categories={categories}
               setCategories={setCategories}
             />
+            <CheckFeatured featured={featured} setFeatured={setFeatured} />
           </React.Fragment>
         ) : (
           <React.Fragment>
             <p className="singlePostDesc">{description}</p>
+            <div className="singlePostFeat">
+              {featured ? (
+                <span>
+                  <i class="fas fa-check featIcon"></i>
+                  Featured
+                </span>
+              ) : (
+                <span>
+                  <i class="fas fa-minus featIcon"></i>
+                  Not Featured
+                </span>
+              )}
+            </div>
             <div className="singlePostCats">
               {categories.map((c) => (
                 <span key={c} className="singlePostCat">

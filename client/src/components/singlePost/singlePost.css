@@ -87,7 +87,22 @@
 .singlePostDescInput:focus {
   outline: none;
 }
-.singlePostButtons {
+
+/* /* .singlePostFeat {
+  display: flex;
+} */
+.singlePostFeat {
+  margin-top: 1rem;
+  display: flex;
+  font-family: "Open Sans", sans-serif;
+  color: #b39656;
+}
+.singlePostFeat .featIcon {
+  font-size: 1.2rem;
+  padding-right: 5px;
+}
+
+*/ .singlePostButtons {
   display: flex;
   justify-content: flex-end;
 }

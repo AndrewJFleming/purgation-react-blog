@@ -5,12 +5,14 @@ import "./Write.css";
 import { Context } from "../../shared/context/Context";
 import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 import { AddCategories } from "../../shared/components/AddCategories/AddCategories";
+import { CheckFeatured } from "../../shared/components/CheckFeatured/CheckFeatured";
 
 export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   // const [file, setFile] = useState(null);
   const [categories, setCategories] = useState([]);
+  const [featured, setFeatured] = useState(false);
   const [error, setError] = useState(false);
   const { user } = useContext(Context);
 
@@ -23,6 +25,7 @@ export default function Write() {
       title,
       description,
       categories,
+      featured,
     };
     //Image upload logic
     try {
@@ -76,6 +79,7 @@ export default function Write() {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
         </div>
+        <CheckFeatured featured={featured} setFeatured={setFeatured} />
         <AddCategories categories={categories} setCategories={setCategories} />
         <div className="writeFormGroup writeSubmit">
           <button className="writeSubmit" type="submit">

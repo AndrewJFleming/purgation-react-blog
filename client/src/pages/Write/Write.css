@@ -29,6 +29,9 @@
 .writeFormGroup h3 {
   padding-bottom: 1rem;
 }
+.writeFormGroup label {
+  padding-left: 5px;
+}
 
 .writeIcon {
   width: 25px;
@@ -112,11 +115,18 @@
 
 .noCats {
   font-style: italic;
+  color: rgba(0, 0, 0, 0.75);
 }
 
 .writeCatIcon {
   cursor: pointer;
   color: rgb(187, 71, 51);
+}
+
+.finePrint {
+  padding-top: 15px;
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 500;
 }
 
 .writeSubmit {
