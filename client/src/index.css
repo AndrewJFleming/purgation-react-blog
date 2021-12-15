@@ -29,3 +29,20 @@ a,
 a:visited {
   color: #4c396f;
 }
+
+input,
+textarea {
+  padding: 3px 5px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  color: gray;
+}
+input:focus {
+  outline: none;
+}
+
+textarea {
+  height: 150px;
+}

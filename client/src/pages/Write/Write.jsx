@@ -41,9 +41,9 @@ export default function Write() {
   };
 
   return (
-    <Container>
+    <Container className="write">
       <Row>
-        <Col md={8} className="write">
+        <Col md={8}>
           <div className="writeImgWrapper">
             <img
               className="writeImg"

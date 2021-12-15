@@ -71,7 +71,7 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="singlePost">
+    <div>
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"

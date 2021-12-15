@@ -35,7 +35,7 @@ export default function Home() {
         <Posts posts={posts} />
         <Sidebar />
       </div> */}
-      <Container>
+      <Container className="home">
         <Row>
           <Col md={8}>
             <Posts posts={posts} />

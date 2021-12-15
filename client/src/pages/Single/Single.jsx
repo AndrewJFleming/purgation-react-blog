@@ -5,7 +5,7 @@ import SinglePost from "../../components/SinglePost/SinglePost";
 
 export default function Single() {
   return (
-    <Container>
+    <Container className="single">
       <Row>
         <Col md={8}>
           <SinglePost />
