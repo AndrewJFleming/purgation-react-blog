@@ -15,6 +15,12 @@
   margin-top: 15px;
 }
 
+.writeFormTitle {
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+}
+
 .writeIcon {
   width: 25px;
   height: 25px;

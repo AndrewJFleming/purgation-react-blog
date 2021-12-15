@@ -81,7 +81,7 @@ export default function Write() {
                 type="text"
                 className="writeInput writeText"
                 onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
+              />
             </div>
             <CheckFeatured featured={featured} setFeatured={setFeatured} />
             <AddCategories
