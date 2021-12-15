@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./CheckFeatured.css";
+
 export const CheckFeatured = ({ featured, setFeatured }) => {
   const handleFeatured = () => setFeatured(!featured);
 
@@ -10,9 +12,9 @@ export const CheckFeatured = ({ featured, setFeatured }) => {
       <input onClick={handleFeatured} checked={featured} type="checkbox" />
       <label>Is featured?</label>
       <br />
-      <h7 className="finePrint">
+      <p className="finePrint">
         * Featured Posts are displayed in the app sidebar.
-      </h7>
+      </p>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 import { Container, Row, Col } from "react-bootstrap";
 import Posts from "../../components/Posts/Posts";
 import Banner from "../../components/Banner/Banner";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import "./Home.css";
 
 export default function Home() {
@@ -31,10 +31,6 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      {/* <div className="home">
-        <Posts posts={posts} />
-        <Sidebar />
-      </div> */}
       <Container className="home">
         <Row>
           <Col md={8}>

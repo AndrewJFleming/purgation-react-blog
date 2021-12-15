@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./AddCategories.css";
+
 export const AddCategories = ({ categories, setCategories }) => {
   const [newCategory, setNewCategory] = useState(null);
   const [existsPrompt, setExistsPrompt] = useState(false);

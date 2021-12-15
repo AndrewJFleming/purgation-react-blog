@@ -7,7 +7,7 @@ import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 import { AddCategories } from "../../shared/components/AddCategories/AddCategories";
 import { CheckFeatured } from "../../shared/components/CheckFeatured/CheckFeatured";
 import { Container, Row, Col } from "react-bootstrap";
-import Sidebar from "../../components/Sidebar/Sidebar";
+import Sidebar from "../../shared/components/Sidebar/Sidebar";
 
 export default function Write() {
   const [title, setTitle] = useState("");

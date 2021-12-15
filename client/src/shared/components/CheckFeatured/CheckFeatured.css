@@ -1,0 +1,12 @@
+.checkFeaturedGroup {
+  margin-top: 15px;
+}
+.checkFeaturedGroup label {
+  padding-left: 5px;
+}
+
+.finePrint {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 500;
+  font-size: small;
+}

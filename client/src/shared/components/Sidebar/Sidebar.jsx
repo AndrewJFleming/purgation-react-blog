@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./Sidebar.css";
-import sidebarImage from "../../images/bigLogo.png";
+import sidebarImage from "../../../images/bigLogo.png";
 
 export default function Sidebar() {
   const [featuredPosts, setFeaturedPosts] = useState([]);
@@ -40,6 +40,8 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
+          <i className="topIcon fab fa-github-square"></i>
+          <i className="topIcon fab fa-github-square"></i>
           <i className="topIcon fab fa-github-square"></i>
         </div>
       </div>

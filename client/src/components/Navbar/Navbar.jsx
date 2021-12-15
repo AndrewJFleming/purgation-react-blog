@@ -41,12 +41,12 @@ export default function Navbar() {
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" to="/about">
               ABOUT
             </Link>
           </li>
           <li className="topListItem">
-            <Link className="link" to="/">
+            <Link className="link" to="/contact">
               CONTACT
             </Link>
           </li>
@@ -88,7 +88,7 @@ export default function Navbar() {
         )}
         <input
           type="text"
-          placeholder="Title"
+          placeholder="Search"
           className="searchInput"
           autoFocus={true}
           onKeyPress={handleKeyPress}

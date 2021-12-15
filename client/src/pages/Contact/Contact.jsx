@@ -1,14 +1,13 @@
 import { Container, Row, Col } from "react-bootstrap";
-import "./Single.css";
+import "./Contact.css";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
-import SinglePost from "../../components/SinglePost/SinglePost";
 
-export default function Single() {
+export default function Contact() {
   return (
-    <Container className="single">
+    <Container className="about">
       <Row>
         <Col md={8}>
-          <SinglePost />
+          <h2>Contact</h2>
         </Col>
         <Col md={4}>
           <Sidebar />
