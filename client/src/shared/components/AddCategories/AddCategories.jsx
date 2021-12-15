@@ -27,13 +27,13 @@ export const AddCategories = ({ categories, setCategories }) => {
 
   return (
     <div className="writeFormGroup">
-      <h3>Categories</h3>
+      <h5 className="writeFormTitle">Categories</h5>
       <div className="addCatWrapper">
         <div className="addCatLeft">
           <input
             type="text"
             placeholder="Category name"
-            className="addCatInput"
+            className="writeInput"
             value={newCategory}
             autoFocus={true}
             onChange={(e) => setNewCategory(e.target.value)}
@@ -45,7 +45,7 @@ export const AddCategories = ({ categories, setCategories }) => {
         </div>
         <div className="addCatRight">
           <ul className="catList">
-            <h4>Categories to be added:</h4>
+            <h5>Categories to be added:</h5>
             {categories.length ? (
               categories.map((cat) => (
                 <li>

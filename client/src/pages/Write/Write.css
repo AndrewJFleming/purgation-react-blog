@@ -1,16 +1,17 @@
 .write {
-  padding-top: 0px;
+  /* padding-top: 0px; */
 }
 
 .writeImgWrapper {
-  margin: 0 150px;
-  padding: 0px 0 10px;
+  /* padding-top: 15px; */
+  /* margin: 0 150px; */
+  padding: 15px 0;
 }
 
 .writeImg {
   width: 100%;
   height: 250px;
-  border-radius: 0px 0px 15px 15px;
+  border-radius: 15px;
   object-fit: cover;
 }
 
@@ -20,17 +21,22 @@
 }
 
 .writeFormGroup {
-  margin: 0 150px;
-  /* display: flex; */
-  align-items: center;
-  padding: 10px 0;
+  /* margin: 0 150px; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-top: 15px;
 }
 
-.writeFormGroup h3 {
-  padding-bottom: 1rem;
+.checkFeaturedGroup {
+  margin-top: 15px;
 }
-.writeFormGroup label {
+.checkFeaturedGroup label {
   padding-left: 5px;
+}
+
+.writeFormTitle {
+  /* padding-bottom: 1rem; */
 }
 
 .writeIcon {
@@ -47,10 +53,9 @@
 }
 
 .writeInput {
+  font-family: "Open Sans", sans-serif;
   font-size: 20px;
-  /* border: none; */
-  padding: 5px;
-  width: 100%;
+  padding: 3px 5px;
 }
 
 .writeInput:focus {
@@ -59,7 +64,7 @@
 
 .writeText {
   font-size: 20px;
-  height: 20vh;
+  height: 150px;
 }
 
 .addCatWrapper {
@@ -75,10 +80,8 @@
   flex-grow: 1;
 }
 
-.addCatInput {
-  font-family: "Open Sans", sans-serif;
-  font-size: 20px;
-  padding: 3px;
+.addCatLeft input {
+  margin-right: 5px;
 }
 
 .addCat {
@@ -86,7 +89,6 @@
   color: teal;
   font-size: 20px;
 
-  padding-left: 10px;
   cursor: pointer;
 }
 
@@ -130,11 +132,13 @@
 }
 
 .writeSubmit {
+  margin-top: 15px;
   display: flex;
   justify-content: flex-end;
 }
 
 .writeSubmit button {
+  width: 90px;
   color: white;
   background-color: teal;
   padding: 10px;

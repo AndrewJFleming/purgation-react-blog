@@ -4,14 +4,15 @@ export const CheckFeatured = ({ featured, setFeatured }) => {
   const handleFeatured = () => setFeatured(!featured);
 
   return (
-    <div className="writeFormGroup">
-      <h3>Featured Post</h3>
+    <div className="checkFeaturedGroup">
+      <h5 className="writeFormTitle">Featured Post</h5>
 
       <input onClick={handleFeatured} checked={featured} type="checkbox" />
       <label>Is featured?</label>
-      <h6 className="finePrint">
+      <br />
+      <h7 className="finePrint">
         * Featured Posts are displayed in the app sidebar.
-      </h6>
+      </h7>
     </div>
   );
 };
