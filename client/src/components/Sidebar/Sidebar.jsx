@@ -20,8 +20,8 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarItem">
-        <span className="sidebarTitle">ABOUT US</span>
         <img className="sidebarImage" src={sidebarImage} alt="" />
+        <span className="sidebarTitle">ABOUT US</span>
         <p className="sidebarDesc">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate qui
           necessitatibus nostrum illum reprehenderit.

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router";
 
+import { Container, Row, Col } from "react-bootstrap";
 import Posts from "../../components/Posts/Posts";
 import Banner from "../../components/Banner/Banner";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -30,10 +31,20 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <div className="home">
+      {/* <div className="home">
         <Posts posts={posts} />
         <Sidebar />
-      </div>
+      </div> */}
+      <Container>
+        <Row>
+          <Col md={8}>
+            <Posts posts={posts} />
+          </Col>
+          <Col md={4}>
+            <Sidebar />
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
