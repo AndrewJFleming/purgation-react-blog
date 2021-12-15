@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <Container className="home">
+      <Container className="page">
         <Row>
           <Col md={8}>
             <Posts posts={posts} />

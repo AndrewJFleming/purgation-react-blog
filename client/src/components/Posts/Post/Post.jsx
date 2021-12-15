@@ -12,7 +12,7 @@ export default function Post({ post }) {
         alt="placeholder"
       />
       {/* } */}
-      <div className="postInfo">
+      <div>
         <Link to={`/post/${post._id}`} className="link">
           <span className="postTitle">{post.title}</span>
         </Link>

@@ -6,6 +6,11 @@ body {
   background-color: #f9fff6;
 }
 
+.page {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
 h1,
 h2,
 h3,

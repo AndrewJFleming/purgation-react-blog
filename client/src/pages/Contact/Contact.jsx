@@ -4,7 +4,7 @@ import Sidebar from "../../shared/components/Sidebar/Sidebar";
 
 export default function Contact() {
   return (
-    <Container className="about">
+    <Container className="page">
       <Row>
         <Col md={8}>
           <h2>Contact</h2>
