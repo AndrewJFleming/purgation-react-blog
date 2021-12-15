@@ -18,16 +18,16 @@ export default function Contact() {
     e.preventDefault();
     setError(false);
 
-    const newMessage = {
+    const emailMessage = {
       subject,
       name,
       email,
       message,
     };
-    //Image upload logic
+
     try {
-      // const res = await axios.post("/contact", newMessage);
-      console.log("Email sent: ", newMessage);
+      // const res = await axios.post("/send", newMessage);
+      console.log("Email sent: ", emailMessage);
       setSuccess(true);
     } catch (err) {
       console.log(err);
