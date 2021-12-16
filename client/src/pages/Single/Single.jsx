@@ -7,10 +7,10 @@ export default function Single() {
   return (
     <Container className="page">
       <Row>
-        <Col md={8}>
+        <Col sm={12} md={8} className="pageLeft">
           <SinglePost />
         </Col>
-        <Col md={4}>
+        <Col sm={12} md={4}>
           <Sidebar />
         </Col>
       </Row>

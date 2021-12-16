@@ -41,9 +41,9 @@ export default function Write() {
   };
 
   return (
-    <Container className="write page">
+    <Container className="page">
       <Row>
-        <Col md={8}>
+        <Col sm={12} md={8} className="pageLeft">
           <div className="writeImgWrapper">
             <img
               className="writeImg"
@@ -94,7 +94,7 @@ export default function Write() {
             </div>
           </form>
         </Col>
-        <Col md={4}>
+        <Col sm={12} md={4}>
           <Sidebar />
         </Col>
       </Row>

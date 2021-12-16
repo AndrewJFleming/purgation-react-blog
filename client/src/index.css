@@ -10,6 +10,9 @@ body {
   margin-top: 20px;
   margin-bottom: 50px;
 }
+.pageLeft {
+  margin-bottom: 0;
+}
 
 h1,
 h2,
@@ -50,4 +53,11 @@ input:focus {
 
 textarea {
   height: 300px;
+}
+
+/*Add bottom when outer columns stack on smaller screens*/
+@media screen and (max-width: 767px) {
+  .pageLeft {
+    margin-bottom: 50px;
+  }
 }

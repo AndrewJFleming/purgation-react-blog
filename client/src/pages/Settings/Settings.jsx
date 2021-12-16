@@ -2,6 +2,7 @@ import "./Settings.css";
 import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 
+import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import { Context } from "../../shared/context/Context";
 import ProfileImage from "../../images/profile.jpg";
@@ -41,56 +42,64 @@ export default function Settings() {
   }, [user]);
 
   return (
-    <div className="settings">
-      <div className="settingsWrapper">
-        <div className="settingsTitle">
-          <span className="settingsUpdateTitle">Update Your Account</span>
-          <span className="settingsDeleteTitle">Delete Account</span>
-        </div>
-        <form className="settingsForm" onSubmit={handleSubmit}>
-          <label>Profile Picture</label>
-          <div className="settingsPP">
-            <img src={ProfileImage} alt="" />
-            <label htmlFor="fileInput">
-              <i className="settingsPPIcon far fa-user-circle"></i>
-            </label>
-            <input
-              type="file"
-              id="fileInput"
-              style={{ display: "none" }}
-              onChange={(e) => {}}
-            />
+    <Container className="page">
+      <Row>
+        <Col md={8} className="pageLeft">
+          <div className="settingsTitle">
+            <span className="settingsUpdateTitle">Update Your Account</span>
+            <span className="settingsDeleteTitle">Delete Account</span>
           </div>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder={user.username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder={user.email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="settingsSubmit" type="submit">
-            Update
-          </button>
-          {success && (
-            <span
-              style={{ color: "green", textAlign: "center", marginTop: "20px" }}
-            >
-              Profile update successful
-            </span>
-          )}
-        </form>
-      </div>
-      <Sidebar />
-    </div>
+          <form className="settingsForm" onSubmit={handleSubmit}>
+            <label>Profile Picture</label>
+            <div className="settingsPP">
+              <img src={ProfileImage} alt="" />
+              <label htmlFor="fileInput">
+                <i className="settingsPPIcon far fa-user-circle"></i>
+              </label>
+              <input
+                type="file"
+                id="fileInput"
+                style={{ display: "none" }}
+                onChange={(e) => {}}
+              />
+            </div>
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder={user.username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder={user.email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="settingsSubmit" type="submit">
+              Update
+            </button>
+            {success && (
+              <span
+                style={{
+                  color: "green",
+                  textAlign: "center",
+                  marginTop: "20px",
+                }}
+              >
+                Profile update successful
+              </span>
+            )}
+          </form>
+        </Col>
+        <Col md={4}>
+          <Sidebar />
+        </Col>
+      </Row>
+    </Container>
   );
 }

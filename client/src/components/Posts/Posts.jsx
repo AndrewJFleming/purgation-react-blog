@@ -6,10 +6,10 @@ import "./Posts.css";
 
 export default function Posts({ posts }) {
   return (
-    <Row className="posts">
+    <Row className="posts ">
       {posts.length ? (
         posts.map((p) => (
-          <Col md={4}>
+          <Col xs={12} sm={6} md={4} lg={3}>
             <Post key={p._id} post={p} />{" "}
           </Col>
         ))

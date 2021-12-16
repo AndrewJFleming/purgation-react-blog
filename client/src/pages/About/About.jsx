@@ -6,7 +6,7 @@ export default function About() {
   return (
     <Container className="page">
       <Row>
-        <Col md={8}>
+        <Col md={8} className="pageLeft">
           <img
             className="aboutImg"
             src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"

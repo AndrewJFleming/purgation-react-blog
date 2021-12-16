@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <Container className="page">
       <Row>
-        <Col md={8}>
+        <Col md={8} className="pageLeft">
           <h2 className="contactFormTitle">Contact</h2>
           <p>
             For questions and inquiries please send a message with the form

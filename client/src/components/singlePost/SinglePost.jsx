@@ -71,97 +71,95 @@ export default function SinglePost() {
   };
 
   return (
-    <div>
-      <div className="singlePostWrapper">
-        <img
-          className="singlePostImg"
-          src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-          alt=""
+    <div className="singlePostWrapper">
+      <img
+        className="singlePostImg"
+        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        alt=""
+      />
+      {updateMode ? (
+        <input
+          type="text"
+          value={title}
+          className="singlePostTitleInput"
+          autoFocus
+          onChange={(e) => setTitle(e.target.value)}
         />
-        {updateMode ? (
-          <input
-            type="text"
-            value={title}
-            className="singlePostTitleInput"
-            autoFocus
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        ) : (
-          <h1 className="singlePostTitle">
-            {title}
-            {post.username === user?.username && (
-              <div className="singlePostEdit">
-                <i
-                  className="singlePostIcon far fa-edit"
-                  onClick={() => setUpdateMode(true)}
-                ></i>
-                <i
-                  className="singlePostIcon far fa-trash-alt"
-                  onClick={handleDelete}
-                ></i>
-              </div>
-            )}
-          </h1>
-        )}
-        <div className="singlePostInfo">
-          <span>
-            Author:&nbsp;
-            <b className="singlePostAuthor">
-              <Link className="link" to={`/?user=${post.username}`}>
-                {post.username}
-              </Link>
-            </b>
-          </span>
-          <span>{new Date(post.createdAt).toDateString()}</span>
-        </div>
-        {updateMode ? (
-          <React.Fragment>
-            <textarea
-              className="singlePostDescInput"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <AddCategories
-              categories={categories}
-              setCategories={setCategories}
-            />
-            <CheckFeatured featured={featured} setFeatured={setFeatured} />
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <p className="singlePostDesc">{description}</p>
-            <div className="singlePostFeat">
-              {featured ? (
-                <span>
-                  <i class="fas fa-check featIcon"></i>
-                  Featured
-                </span>
-              ) : (
-                <span>
-                  <i class="fas fa-minus featIcon"></i>
-                  Not Featured
-                </span>
-              )}
+      ) : (
+        <h1 className="singlePostTitle">
+          {title}
+          {post.username === user?.username && (
+            <div className="singlePostEdit">
+              <i
+                className="singlePostIcon far fa-edit"
+                onClick={() => setUpdateMode(true)}
+              ></i>
+              <i
+                className="singlePostIcon far fa-trash-alt"
+                onClick={handleDelete}
+              ></i>
             </div>
-            <div className="singlePostCats">
-              {categories.map((c) => (
-                <span key={c} className="singlePostCat">
-                  <Link to={`/?cat=${c}`} className="link">
-                    {c}
-                  </Link>
-                </span>
-              ))}
-            </div>
-          </React.Fragment>
-        )}
-        {updateMode && (
-          <div className="singlePostButtons">
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleUpdate}>Update</button>
-          </div>
-        )}
-        {error && <ErrorPrompt />}
+          )}
+        </h1>
+      )}
+      <div className="singlePostInfo">
+        <span>
+          Author:&nbsp;
+          <b className="singlePostAuthor">
+            <Link className="link" to={`/?user=${post.username}`}>
+              {post.username}
+            </Link>
+          </b>
+        </span>
+        <span>{new Date(post.createdAt).toDateString()}</span>
       </div>
+      {updateMode ? (
+        <React.Fragment>
+          <textarea
+            className="singlePostDescInput"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <AddCategories
+            categories={categories}
+            setCategories={setCategories}
+          />
+          <CheckFeatured featured={featured} setFeatured={setFeatured} />
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <p className="singlePostDesc">{description}</p>
+          <div className="singlePostFeat">
+            {featured ? (
+              <span>
+                <i class="fas fa-check featIcon"></i>
+                Featured
+              </span>
+            ) : (
+              <span>
+                <i class="fas fa-minus featIcon"></i>
+                Not Featured
+              </span>
+            )}
+          </div>
+          <div className="singlePostCats">
+            {categories.map((c) => (
+              <span key={c} className="singlePostCat">
+                <Link to={`/?cat=${c}`} className="link">
+                  {c}
+                </Link>
+              </span>
+            ))}
+          </div>
+        </React.Fragment>
+      )}
+      {updateMode && (
+        <div className="singlePostButtons">
+          <button onClick={handleCancel}>Cancel</button>
+          <button onClick={handleUpdate}>Update</button>
+        </div>
+      )}
+      {error && <ErrorPrompt />}
     </div>
   );
 }

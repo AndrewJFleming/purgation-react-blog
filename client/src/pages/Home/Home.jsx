@@ -37,10 +37,10 @@ export default function Home() {
       <Banner />
       <Container className="page">
         <Row>
-          <Col md={8}>
+          <Col sm={12} md={8} className="pageLeft">
             {loading ? <p>Please wait</p> : <Posts posts={posts} />}
           </Col>
-          <Col md={4}>
+          <Col sm={12} md={4}>
             <Sidebar />
           </Col>
         </Row>
