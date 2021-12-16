@@ -3,7 +3,7 @@ import { useContext, useRef } from "react";
 import axios from "axios";
 
 import { Context } from "../../shared/context/Context";
-import "./Login.css";
+import "./Auth.css";
 
 export default function Login() {
   const userRef = useRef();
@@ -25,28 +25,22 @@ export default function Login() {
   };
 
   return (
-    <div className="login">
-      <span className="loginTitle">Login</span>
-      <form className="loginForm" onSubmit={handleSubmit}>
+    <div className="auth">
+      <span className="authTitle">Login</span>
+      <form className="authForm" onSubmit={handleSubmit}>
         <label>Username</label>
-        <input
-          type="text"
-          className="loginInput"
-          placeholder="Enter your username..."
-          ref={userRef}
-        />
+        <input type="text" placeholder="Enter your username..." ref={userRef} />
         <label>Password</label>
         <input
           type="password"
-          className="loginInput"
           placeholder="Enter your password..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>
+        <button className="authButton" type="submit" disabled={isFetching}>
           Login
         </button>
       </form>
-      <button className="loginRegisterButton">
+      <button className="switchAuthButton">
         <Link className="link" to="/register">
           Register
         </Link>

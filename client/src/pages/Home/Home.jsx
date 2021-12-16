@@ -33,7 +33,7 @@ export default function Home() {
   }, [search]);
 
   return (
-    <div>
+    <div className="home">
       <Banner />
       <Container className="page">
         <Row>

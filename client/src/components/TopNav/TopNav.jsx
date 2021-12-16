@@ -37,7 +37,7 @@ export default function TopNav() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark">
+    <Navbar className="fixed-top" collapseOnSelect expand="lg" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img

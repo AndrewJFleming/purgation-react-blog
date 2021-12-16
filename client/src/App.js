@@ -9,8 +9,8 @@ import Contact from "./pages/Contact/Contact";
 import Write from "./pages/Write/Write";
 import Single from "./pages/Single/Single";
 import Settings from "./pages/Settings/Settings";
-import Login from "./pages/Login/Login";
-import Register from "./pages/Register/Register";
+import Login from "./pages/Auth/Login";
+import Register from "./pages/Auth/Register";
 import { Context } from "./shared/context/Context";
 
 function App() {

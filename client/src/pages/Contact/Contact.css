@@ -1,7 +1,7 @@
 .contactFormTitle {
 }
 
-.contactFormGroup {
+.contactFormGroup label {
   margin-top: 15px;
 }
 .contactFormGroup input,
@@ -10,6 +10,10 @@
 }
 .inputWrapper:first-child {
   margin-right: 15px;
+}
+
+.inputWrapper {
+  width: 100%;
 }
 
 .contactSubmit {
@@ -32,4 +36,13 @@
 .success {
   font-style: italic;
   color: green;
+}
+
+@media screen and (max-width: 767px) {
+  .inputWrapper:first-child {
+    margin-right: 0;
+  }
+  .contactFormGroup {
+    flex-direction: column;
+  }
 }

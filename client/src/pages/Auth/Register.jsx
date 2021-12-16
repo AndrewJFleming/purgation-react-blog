@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import "./Register.css";
+import "./Auth.css";
 import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
 
 export default function Register() {
@@ -28,35 +28,32 @@ export default function Register() {
     }
   };
   return (
-    <div className="register">
-      <span className="registerTitle">Register</span>
-      <form className="registerForm" onSubmit={handleSubmit}>
+    <div className="auth">
+      <span className="authTitle">Register</span>
+      <form className="authForm" onSubmit={handleSubmit}>
         <label>Username</label>
         <input
           type="text"
-          className="registerInput"
           placeholder="Enter your username..."
           onChange={(e) => setUsername(e.target.value)}
         />
         <label>Email</label>
         <input
           type="text"
-          className="registerInput"
           placeholder="Enter your email..."
           onChange={(e) => setEmail(e.target.value)}
         />
         <label>Password</label>
         <input
           type="password"
-          className="registerInput"
           placeholder="Enter your password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="registerButton" type="submit">
+        <button className="authButton" type="submit">
           Register
         </button>
       </form>
-      <button className="registerLoginButton">
+      <button className="switchAuthButton">
         <Link className="link" to="/login">
           Login
         </Link>

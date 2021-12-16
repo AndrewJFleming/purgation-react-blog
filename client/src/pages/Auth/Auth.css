@@ -1,4 +1,4 @@
-.register {
+.auth {
   height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
@@ -12,27 +12,21 @@
   background-size: cover;
 }
 
-.registerTitle {
+.authTitle {
   font-size: 50px;
 }
 
-.registerForm {
+.authForm {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
-.registerForm > label {
+.authForm > label {
   margin: 10px 0;
 }
 
-.registerInput {
-  padding: 10px;
-  background-color: white;
-  border: none;
-}
-
-.registerButton {
+.authButton {
   margin-top: 20px;
   cursor: pointer;
   background-color: teal;
@@ -42,9 +36,14 @@
   padding: 10px;
 }
 
-.registerLoginButton {
+.authButton:disabled {
+  cursor: not-allowed;
+  background-color: rgb(252, 173, 173);
+}
+
+.switchAuthButton {
   position: absolute;
-  top: 60px;
+  top: 70px;
   right: 20px;
   background-color: lightcoral;
   cursor: pointer;
