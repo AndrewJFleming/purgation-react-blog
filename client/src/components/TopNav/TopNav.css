@@ -1,4 +1,4 @@
-.top {
+/* .top {
   width: 100%;
   height: 70px;
   background-color: #73816b;
@@ -41,18 +41,7 @@
   cursor: pointer;
 }
 
-.topImg {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  cursor: pointer;
-}
-.navLogo {
-  height: 40px;
-  object-fit: cover;
-  cursor: pointer;
-}
+
 .topList {
   display: flex;
   justify-content: center;
@@ -73,7 +62,8 @@
 }
 
 .topSearchIcon {
-  font-size: 18px;
+  margin: auto 0;
+  font-size: 22px;
   color: #ffb4b7;
   cursor: pointer;
   margin-left: 15px;
@@ -82,4 +72,30 @@
 .searchInput {
   margin-left: 15px;
   max-width: 100px;
+} 
+.navLogo {
+ height: 40px;
+ object-fit: cover;
+ cursor: pointer;
+}
+*/
+
+.topImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+  padding: 3px;
+}
+
+.myResponsive {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 991px) {
+  .myResponsive {
+    display: block;
+  }
 }

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useContext } from "react";
 
-import Navbar from "./components/Navbar/Navbar";
+import TopNav from "./components/TopNav/TopNav";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar user={user} />
+      <TopNav user={user} />
       <Switch>
         <Route exact path="/">
           <Home />
