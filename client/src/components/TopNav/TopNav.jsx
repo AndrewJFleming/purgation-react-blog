@@ -37,7 +37,7 @@ export default function TopNav() {
   };
 
   return (
-    <Navbar collapseOnSelect bg="light" expand="lg">
+    <Navbar collapseOnSelect expand="lg" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -46,6 +46,7 @@ export default function TopNav() {
             className="d-inline-block align-top"
             alt="site logo"
           />
+          Purgation
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" className="myResponsive">
@@ -93,7 +94,7 @@ export default function TopNav() {
           </Nav>
 
           <Nav>
-            <Form className="d-flex" onSubmit={handleSearch}>
+            <Form className="d-flex navSearch" onSubmit={handleSearch}>
               <FormControl
                 type="text"
                 placeholder="Search"
@@ -101,7 +102,7 @@ export default function TopNav() {
                 aria-label="Search"
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <Button variant="outline-success" type="submit">
+              <Button variant="outline-light" type="submit" className="ml-1">
                 Search
               </Button>
             </Form>

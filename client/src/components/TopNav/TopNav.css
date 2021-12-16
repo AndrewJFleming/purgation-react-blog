@@ -80,6 +80,14 @@
 }
 */
 
+.navbar {
+  background-color: #73816b;
+  font-family: "Open Sans", sans-serif;
+}
+.navbar a {
+  color: #ffd2d3 !important;
+}
+
 .topImg {
   width: 40px;
   height: 40px;
@@ -97,5 +105,8 @@
 @media screen and (max-width: 991px) {
   .myResponsive {
     display: block;
+  }
+  .navSearch {
+    margin: 10px 0 5px;
   }
 }

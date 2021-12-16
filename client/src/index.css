@@ -55,6 +55,13 @@ textarea {
   height: 300px;
 }
 
+.socialIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #ffb4b7;
+  cursor: pointer;
+}
+
 /*Add bottom when outer columns stack on smaller screens*/
 @media screen and (max-width: 767px) {
   .pageLeft {

@@ -40,9 +40,9 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
-          <i className="topIcon fab fa-github-square"></i>
-          <i className="topIcon fab fa-github-square"></i>
-          <i className="topIcon fab fa-github-square"></i>
+          <i className="socialIcon fab fa-github-square"></i>
+          <i className="socialIcon fab fa-github-square"></i>
+          <i className="socialIcon fab fa-github-square"></i>
         </div>
       </div>
     </div>
