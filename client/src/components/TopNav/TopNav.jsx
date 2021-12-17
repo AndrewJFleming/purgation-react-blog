@@ -14,6 +14,7 @@ import "./TopNav.css";
 import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
 import { Context } from "../../shared/context/Context";
+import NavLink from "./NavLink/NavLink";
 
 export default function TopNav() {
   const [search, setSearch] = useState("");
@@ -66,22 +67,12 @@ export default function TopNav() {
         />
         <Navbar.Collapse id="responsive-navbar-nav" className="myResponsive">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/" onClick={handleCollapse}>
-              Home
-            </Nav.Link>
-            <Nav.Link as={Link} to="/about" onClick={handleCollapse}>
-              About
-            </Nav.Link>
-            <Nav.Link as={Link} to="/contact" onClick={handleCollapse}>
-              Contact
-            </Nav.Link>
-            <Nav.Link as={Link} to="/write" onClick={handleCollapse}>
-              Write
-            </Nav.Link>
+            <NavLink name="Home" path="/" handler={handleCollapse} />
+            <NavLink name="About" path="/about" handler={handleCollapse} />
+            <NavLink name="Contact" path="/contact" handler={handleCollapse} />
+            <NavLink name="Write" path="/write" handler={handleCollapse} />
             {user && (
-              <Nav.Link as={Link} to="/write" onClick={handleLogout}>
-                Logout
-              </Nav.Link>
+              <NavLink name="Logout" path="/write" handler={handleLogout} />
             )}
           </Nav>
           <Nav>
@@ -98,16 +89,15 @@ export default function TopNav() {
               </Link>
             ) : (
               <React.Fragment>
-                <Nav.Link as={Link} to="/login" onClick={handleCollapse}>
-                  Login
-                </Nav.Link>
-                <Nav.Link as={Link} to="/register" onClick={handleCollapse}>
-                  Register
-                </Nav.Link>
+                <NavLink name="Login" path="/login" handler={handleCollapse} />
+                <NavLink
+                  name="Register"
+                  path="/register"
+                  handler={handleCollapse}
+                />
               </React.Fragment>
             )}
           </Nav>
-
           <Nav>
             <Form className="d-flex navSearch" onSubmit={handleSearch}>
               <FormControl
