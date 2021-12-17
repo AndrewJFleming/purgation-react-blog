@@ -23,14 +23,6 @@
   cursor: pointer;
 }
 
-.postTitle {
-  font-family: "Old Standard TT", serif;
-  font-size: 24px;
-  font-weight: 700;
-  cursor: pointer;
-  color: #2c3d2b;
-}
-
 .post hr {
   margin: 5px 0;
 }

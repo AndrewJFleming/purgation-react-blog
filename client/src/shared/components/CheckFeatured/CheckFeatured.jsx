@@ -7,7 +7,7 @@ export const CheckFeatured = ({ featured, setFeatured }) => {
 
   return (
     <div className="checkFeaturedGroup">
-      <h5 className="writeFormTitle">Featured Post</h5>
+      <h4 className="serifTitle">Featured Post</h4>
 
       <input onClick={handleFeatured} checked={featured} type="checkbox" />
       <label>Is featured?</label>

@@ -38,6 +38,13 @@ a:visited {
   color: #4c396f;
 }
 
+.serifTitle {
+  font-family: "Old Standard TT", serif;
+  /* font-size: 30px; */
+  font-weight: 700;
+  cursor: pointer;
+}
+
 input,
 textarea {
   padding: 3px 5px;

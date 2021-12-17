@@ -29,21 +29,21 @@ export default function Register() {
   };
   return (
     <div className="auth">
-      <span className="authTitle">Register</span>
+      <h2 className="serifTitle">Register</h2>
       <form className="authForm" onSubmit={handleSubmit}>
-        <label>Username</label>
+        <h5 className="serifTitle">Username</h5>
         <input
           type="text"
           placeholder="Enter your username..."
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label>Email</label>
+        <h5 className="serifTitle mt-2">Email</h5>
         <input
           type="text"
           placeholder="Enter your email..."
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Password</label>
+        <h5 className="serifTitle mt-2">Password</h5>
         <input
           type="password"
           placeholder="Enter your password..."

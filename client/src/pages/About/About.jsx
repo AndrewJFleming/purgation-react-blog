@@ -12,7 +12,7 @@ export default function About() {
             src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
             alt="placeholder"
           />
-          <h2>About</h2>
+          <h2 className="serifTitle text-center">About</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque

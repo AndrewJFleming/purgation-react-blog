@@ -1,15 +1,9 @@
-.settingsTitle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .settingsUpdateTitle {
   font-size: 30px;
   margin-bottom: 20px;
 }
 
-.settingsDeleteTitle {
+.settingsDelete {
   color: red;
   font-size: 12px;
   cursor: pointer;
@@ -44,9 +38,4 @@
   justify-content: center;
   margin-left: 10px;
   cursor: pointer;
-}
-
-.settingsForm > label {
-  font-size: 20px;
-  margin-top: 20px;
 }

@@ -67,7 +67,6 @@ export default function TopNav() {
         />
         <Navbar.Collapse id="responsive-navbar-nav" className="myResponsive">
           <Nav className="me-auto">
-            <NavLink name="Home" path="/" handler={handleCollapse} />
             <NavLink name="About" path="/about" handler={handleCollapse} />
             <NavLink name="Contact" path="/contact" handler={handleCollapse} />
             <NavLink name="Write" path="/write" handler={handleCollapse} />

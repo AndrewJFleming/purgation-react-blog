@@ -86,7 +86,7 @@ export default function SinglePost() {
           onChange={(e) => setTitle(e.target.value)}
         />
       ) : (
-        <h1 className="singlePostTitle">
+        <h2 className="serifTitle text-center">
           {title}
           {post.username === user?.username && (
             <div className="singlePostEdit">
@@ -100,7 +100,7 @@ export default function SinglePost() {
               ></i>
             </div>
           )}
-        </h1>
+        </h2>
       )}
       <div className="singlePostInfo">
         <span>

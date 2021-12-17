@@ -39,7 +39,7 @@ export default function Contact() {
     <Container className="page">
       <Row>
         <Col md={8} className="pageLeft">
-          <h2 className="contactFormTitle">Contact</h2>
+          <h2 className="serifTitle">Contact</h2>
           <p>
             For questions and inquiries please send a message with the form
             below.

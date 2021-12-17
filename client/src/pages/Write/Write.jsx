@@ -51,10 +51,11 @@ export default function Write() {
               alt=""
             />
           </div>
+          <h2 className="serifTitle mt-4">Write</h2>
 
           <form className="writeForm" onSubmit={handleSubmit}>
             <div className="writeFormGroup">
-              <h5 className="writeFormTitle">Post Image</h5>
+              <h4 className="serifTitle">Post Image</h4>
               <label htmlFor="fileInput">
                 <i className="writeIcon fas fa-plus"></i>
               </label>

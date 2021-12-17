@@ -45,12 +45,12 @@ export default function Settings() {
     <Container className="page">
       <Row>
         <Col md={8} className="pageLeft">
-          <div className="settingsTitle">
-            <span className="settingsUpdateTitle">Update Your Account</span>
-            <span className="settingsDeleteTitle">Delete Account</span>
+          <div className="d-flex justify-content-between">
+            <h2 className="serifTitle">Update Your Account</h2>
+            <span className="settingsDelete">Delete Account</span>
           </div>
           <form className="settingsForm" onSubmit={handleSubmit}>
-            <label>Profile Picture</label>
+            <h5 className="serifTitle mt-4">Profile Picture</h5>
             <div className="settingsPP">
               <img src={ProfileImage} alt="" />
               <label htmlFor="fileInput">
@@ -63,19 +63,19 @@ export default function Settings() {
                 onChange={(e) => {}}
               />
             </div>
-            <label>Username</label>
+            <h5 className="serifTitle mt-4">Username</h5>
             <input
               type="text"
               placeholder={user.username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <label>Email</label>
+            <h5 className="serifTitle mt-4">Email</h5>
             <input
               type="email"
               placeholder={user.email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <label>Password</label>
+            <h5 className="serifTitle mt-4">Password</h5>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}

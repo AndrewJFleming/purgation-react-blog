@@ -14,7 +14,7 @@ export default function Post({ post }) {
       {/* } */}
       <div>
         <Link to={`/post/${post._id}`} className="link">
-          <span className="postTitle">{post.title}</span>
+          <h4 className="serifTitle">{post.title}</h4>
         </Link>
         <hr />
         <span className="postDate">

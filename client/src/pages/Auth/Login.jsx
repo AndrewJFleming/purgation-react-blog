@@ -26,11 +26,11 @@ export default function Login() {
 
   return (
     <div className="auth">
-      <span className="authTitle">Login</span>
+      <h2 className="serifTitle">Login</h2>
       <form className="authForm" onSubmit={handleSubmit}>
-        <label>Username</label>
+        <h5 className="serifTitle">Username</h5>
         <input type="text" placeholder="Enter your username..." ref={userRef} />
-        <label>Password</label>
+        <h5 className="serifTitle mt-2">Password</h5>
         <input
           type="password"
           placeholder="Enter your password..."

@@ -29,7 +29,7 @@ export const AddCategories = ({ categories, setCategories }) => {
 
   return (
     <div className="writeFormGroup">
-      <h5 className="writeFormTitle">Categories</h5>
+      <h4 className="serifTitle">Categories</h4>
       <div className="addCatWrapper">
         <div className="addCatLeft">
           <input
