@@ -33,20 +33,3 @@
   color: rgb(121, 118, 118);
   cursor: pointer;
 }
-
-.writeSubmit {
-  margin-top: 15px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.writeSubmit button {
-  width: 90px;
-  color: white;
-  background-color: teal;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 16px;
-}

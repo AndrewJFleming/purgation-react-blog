@@ -88,8 +88,10 @@ export default function Write() {
               categories={categories}
               setCategories={setCategories}
             />
-            <div className="writeSubmit">
-              <button type="submit">Publish</button>
+            <div className="submitWrapper">
+              <button className="buttonSuccess" type="submit">
+                Publish
+              </button>
               {error && <ErrorPrompt />}
             </div>
           </form>

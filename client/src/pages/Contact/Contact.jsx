@@ -83,8 +83,10 @@ export default function Contact() {
               />
             </div>
             {!success ? (
-              <div className="contactSubmit">
-                <button type="submit">Send</button>
+              <div className="submitWrapper">
+                <button className="buttonSuccess" type="submit">
+                  Send
+                </button>
               </div>
             ) : (
               <p className="success">Email sent successfully</p>

@@ -155,8 +155,12 @@ export default function SinglePost() {
       )}
       {updateMode && (
         <div className="singlePostButtons">
-          <button onClick={handleCancel}>Cancel</button>
-          <button onClick={handleUpdate}>Update</button>
+          <button className="buttonSuccess" onClick={handleCancel}>
+            Cancel
+          </button>
+          <button className="buttonSuccess" onClick={handleUpdate}>
+            Update
+          </button>
         </div>
       )}
       {error && <ErrorPrompt />}

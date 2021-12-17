@@ -55,10 +55,27 @@ textarea {
   height: 300px;
 }
 
+.submitWrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.buttonSuccess {
+  width: 90px;
+  color: white;
+  background-color: #2c3d2b;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 .socialIcon {
   font-size: 20px;
   margin-right: 10px;
-  color: #ffb4b7;
+  color: #ff989b;
   cursor: pointer;
 }
 

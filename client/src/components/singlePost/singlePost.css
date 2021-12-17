@@ -35,11 +35,11 @@
 }
 
 .singlePostIcon:first-child {
-  color: teal;
+  color: #2c3d2b;
 }
 
 .singlePostIcon:last-child {
-  color: tomato;
+  color: #ff8a8e;
 }
 
 .singlePostInfo {
@@ -48,7 +48,7 @@
   justify-content: space-between;
   font-size: 16px;
   font-family: "Varela Round", sans-serif;
-  color: #b39656;
+  color: #a6b1a0;
 }
 
 .singlePostDesc {
@@ -72,7 +72,7 @@
   margin-top: 1rem;
   display: flex;
   font-family: "Open Sans", sans-serif;
-  color: #b39656;
+  color: #a6b1a0;
 }
 .singlePostFeat .featIcon {
   font-size: 1.2rem;
@@ -83,16 +83,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.singlePostButtons button {
-  width: 100px;
-  border: none;
-  background-color: #2c3d2b;
-  padding: 5px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-}
+
 .singlePostButtons button:first-child {
   color: black;
   background-color: rgba(255, 210, 211, 0.5);

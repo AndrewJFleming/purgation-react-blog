@@ -17,10 +17,12 @@ import { Context } from "../../shared/context/Context";
 
 export default function TopNav() {
   const [search, setSearch] = useState("");
+  const [expanded, setExpanded] = useState(false);
   const { user, dispatch } = useContext(Context);
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
+    setExpanded(false);
   };
 
   // const handleKeyPress = (e) => {
@@ -36,10 +38,20 @@ export default function TopNav() {
     }
   };
 
+  const handleCollapse = () => {
+    setExpanded(false);
+  };
+
   return (
-    <Navbar className="fixed-top" collapseOnSelect expand="lg" variant="dark">
+    <Navbar
+      className="fixed-top"
+      expanded={expanded}
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+    >
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/" onClick={handleCollapse}>
           <img
             src={NavLogo}
             height="30"
@@ -48,19 +60,22 @@ export default function TopNav() {
           />
           Purgation
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle
+          aria-controls="responsive-navbar-nav"
+          onClick={() => setExpanded(expanded ? false : "expanded")}
+        />
         <Navbar.Collapse id="responsive-navbar-nav" className="myResponsive">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+            <Nav.Link as={Link} to="/" onClick={handleCollapse}>
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/about">
+            <Nav.Link as={Link} to="/about" onClick={handleCollapse}>
               About
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact">
+            <Nav.Link as={Link} to="/contact" onClick={handleCollapse}>
               Contact
             </Nav.Link>
-            <Nav.Link as={Link} to="/write">
+            <Nav.Link as={Link} to="/write" onClick={handleCollapse}>
               Write
             </Nav.Link>
             {user && (
@@ -83,10 +98,10 @@ export default function TopNav() {
               </Link>
             ) : (
               <React.Fragment>
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link as={Link} to="/login" onClick={handleCollapse}>
                   Login
                 </Nav.Link>
-                <Nav.Link as={Link} to="/register">
+                <Nav.Link as={Link} to="/register" onClick={handleCollapse}>
                   Register
                 </Nav.Link>
               </React.Fragment>
@@ -110,75 +125,5 @@ export default function TopNav() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    // <div className="top">
-    //   <div className="topLeft">
-    //     <Link to="/">
-    //       <img className="navLogo" src={NavLogo} alt="logo" />
-    //     </Link>
-    //   </div>
-    //   <div className="topCenter">
-    //     <ul className="topList">
-    //       <li className="topListItem">
-    //         <Link className="link" to="/">
-    //           HOME
-    //         </Link>
-    //       </li>
-    //       <li className="topListItem">
-    //         <Link className="link" to="/about">
-    //           ABOUT
-    //         </Link>
-    //       </li>
-    //       <li className="topListItem">
-    //         <Link className="link" to="/contact">
-    //           CONTACT
-    //         </Link>
-    //       </li>
-    //       <li className="topListItem">
-    //         <Link className="link" to="/write">
-    //           WRITE
-    //         </Link>
-    //       </li>
-    //       <li className="topListItem logoOut" onClick={handleLogout}>
-    //         {user && "LOGOUT"}
-    //       </li>
-    //     </ul>
-    //   </div>
-    //   <div className="topRight">
-    //     {user ? (
-    //       <Link to="/settings">
-    //         <img
-    //           className="topImg"
-    //           src={
-    //             // {PF+user.profilePic}
-    //             ProfileImage
-    //           }
-    //           alt="profile"
-    //         />
-    //       </Link>
-    //     ) : (
-    //       <ul className="topList">
-    //         <li className="topListItem">
-    //           <Link className="link" to="/login">
-    //             LOGIN
-    //           </Link>
-    //         </li>
-    //         <li className="topListItem">
-    //           <Link className="link" to="/register">
-    //             REGISTER
-    //           </Link>
-    //         </li>
-    //       </ul>
-    //     )}
-    //     <input
-    //       type="text"
-    //       placeholder="Search"
-    //       className="searchInput"
-    //       autoFocus={true}
-    //       onKeyPress={handleKeyPress}
-    //       onChange={(e) => setSearch(e.target.value)}
-    //     />
-    //     <i className="topSearchIcon fas fa-search" onClick={handleSearch}></i>
-    //   </div>
-    // </div>
   );
 }

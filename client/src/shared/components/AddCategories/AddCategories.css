@@ -16,7 +16,7 @@
 
 .addCat {
   font-family: "Open Sans", sans-serif;
-  color: teal;
+  color: #4c3970;
   cursor: pointer;
 }
 
@@ -50,5 +50,5 @@
 
 .writeCatIcon {
   cursor: pointer;
-  color: rgb(187, 71, 51);
+  color: #ff6e73;
 }

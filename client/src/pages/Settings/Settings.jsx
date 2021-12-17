@@ -80,9 +80,11 @@ export default function Settings() {
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="settingsSubmit" type="submit">
-              Update
-            </button>
+            <div className="submitWrapper">
+              <button className="buttonSuccess" type="submit">
+                Update
+              </button>
+            </div>
             {success && (
               <span
                 style={{
