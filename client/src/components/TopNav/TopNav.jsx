@@ -51,7 +51,9 @@ export default function TopNav() {
             className="d-inline-block align-top"
             alt="site logo"
           />
-          <span className="serifTitle">PURGATION</span>
+          <span className="serifTitle" style={{ textDecoration: "underline" }}>
+            PURGATION
+          </span>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"

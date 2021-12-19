@@ -31,7 +31,6 @@ export default function Write() {
       featured,
       photo: photo.image,
     };
-    //Image upload logic
     try {
       const res = await axios.post("/posts", newPost);
       //Redirect to single post page with respective id
@@ -46,25 +45,13 @@ export default function Write() {
     <Container className="page">
       <Row>
         <Col sm={12} md={8} className="pageLeft">
-          <div className="writeImgWrapper">
-            <img className="writeImg" src={photo.image} alt="" />
-          </div>
-          <h2 className="serifTitle mt-4">Write</h2>
-
-          <form className="writeForm" onSubmit={handleSubmit}>
-            <div className="writeFormGroup">
-              <h4 className="serifTitle">Post Image</h4>
-              <label htmlFor="fileInput">
-                <i className="writeIcon fas fa-plus"></i>
-              </label>
-              {/* Complete file upload functionality */}
-              <input
-                type="file"
-                id="fileInput"
-                style={{ display: "none" }}
-                onChange={(e) => {}}
-              />
+          {photo.image && (
+            <div className="writeImgWrapper">
+              <img className="writeImg" src={photo.image} alt="" />
             </div>
+          )}
+          <h2 className="serifTitle mt-4">Write</h2>
+          <form className="writeForm" onSubmit={handleSubmit}>
             <div className="writeFormGroup">
               <input
                 type="text"
@@ -85,20 +72,17 @@ export default function Write() {
                 onChange={(e) => setDescription(e.target.value)}
               />
             </div>
+            <div className="writeFormGroup uploadInput">
+              <FileBase
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) => setPhoto({ ...photo, image: base64 })}
+              />
+            </div>
             <CheckFeatured featured={featured} setFeatured={setFeatured} />
             <AddCategories
               categories={categories}
               setCategories={setCategories}
-            />
-            {/* <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) => setPhoto({ image: base64 })}
-            /> */}
-            <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) => setPhoto({ ...photo, image: base64 })}
             />
             <div className="submitWrapper">
               <button className="buttonSuccess" type="submit">

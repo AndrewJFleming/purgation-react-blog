@@ -27,3 +27,13 @@
   color: rgb(121, 118, 118);
   cursor: pointer;
 }
+
+.uploadInput {
+  max-width: 50%;
+}
+
+@media screen and (max-width: 767px) {
+  .uploadInput {
+    max-width: 100%;
+  }
+}
