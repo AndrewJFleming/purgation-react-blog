@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 export default function Post({ post }) {
   return (
     <div className="post">
-      {/* {post.photo &&  */}
-      {/* <img className="postImg" src={post.photo} alt="" /> */}
-      <img className="postImg" src={post.photo} alt="placeholder" />
-      {/* } */}
+      {post.photo && (
+        <img className="postImg" src={post.photo} alt="placeholder" />
+      )}
       <div>
         <Link to={`/post/${post._id}`} className="link">
           <h4 className="serifTitle">{post.title}</h4>

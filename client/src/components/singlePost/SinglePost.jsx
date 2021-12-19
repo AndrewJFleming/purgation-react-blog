@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import FileBase from "react-file-base64";
 
 import "./SinglePost.css";
 import { Context } from "../../shared/context/Context";
@@ -16,6 +17,7 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
+  const [newPhoto, setNewPhoto] = useState("");
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState(false);
   const [updateMode, setUpdateMode] = useState(false);
@@ -60,6 +62,7 @@ export default function SinglePost() {
         description,
         categories,
         featured,
+        photo: newPhoto.image,
       });
       setUpdateMode(false);
     } catch (err) {
@@ -74,15 +77,28 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostWrapper">
-      <img className="singlePostImg" src={photo} alt="" />
+      {newPhoto ? (
+        <img className="singlePostImg" src={newPhoto.image} alt={title} />
+      ) : photo ? (
+        <img className="singlePostImg" src={photo} alt={title} />
+      ) : (
+        <span />
+      )}
       {updateMode ? (
-        <input
-          type="text"
-          value={title}
-          className="singlePostTitleInput"
-          autoFocus
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        <React.Fragment>
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) => setNewPhoto({ ...newPhoto, image: base64 })}
+          />
+          <input
+            type="text"
+            value={title}
+            className="singlePostTitleInput"
+            autoFocus
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </React.Fragment>
       ) : (
         <h2 className="serifTitle text-center">
           {title}

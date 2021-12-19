@@ -90,10 +90,15 @@ export default function Write() {
               categories={categories}
               setCategories={setCategories}
             />
-            <FileBase
+            {/* <FileBase
               type="file"
               multiple={false}
               onDone={({ base64 }) => setPhoto({ image: base64 })}
+            /> */}
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => setPhoto({ ...photo, image: base64 })}
             />
             <div className="submitWrapper">
               <button className="buttonSuccess" type="submit">
