@@ -4,14 +4,12 @@ import {
   Container,
   Navbar,
   Nav,
-  NavDropdown,
   FormControl,
   Form,
   Button,
 } from "react-bootstrap";
 
 import "./TopNav.css";
-import ProfileImage from "../../images/profile.jpg";
 import NavLogo from "../../images/logo.png";
 import { Context } from "../../shared/context/Context";
 import NavLink from "./NavLink/NavLink";
@@ -26,12 +24,6 @@ export default function TopNav() {
     setExpanded(false);
   };
 
-  // const handleKeyPress = (e) => {
-  //   if (e.key === "Enter") {
-  //     handleSearch();
-  //     console.log("pressed");
-  //   }
-  // };
   const handleSearch = (e) => {
     e.preventDefault();
     if (search) {
@@ -76,15 +68,8 @@ export default function TopNav() {
           </Nav>
           <Nav>
             {user ? (
-              <Link to="/settings">
-                <img
-                  className="topImg"
-                  src={
-                    // {PF+user.profilePic}
-                    ProfileImage
-                  }
-                  alt="profile"
-                />
+              <Link to="/settings" className="avatar" alt={user.username}>
+                <span className="avatarChar">{user.username.charAt(0)}</span>
               </Link>
             ) : (
               <React.Fragment>

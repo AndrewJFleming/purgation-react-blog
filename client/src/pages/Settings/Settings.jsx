@@ -5,10 +5,8 @@ import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 import { Context } from "../../shared/context/Context";
-import ProfileImage from "../../images/profile.jpg";
 
 export default function Settings() {
-  // const [file, setFile] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,19 +48,6 @@ export default function Settings() {
             <span className="settingsDelete">Delete Account</span>
           </div>
           <form className="settingsForm" onSubmit={handleSubmit}>
-            <label className="mt-2">Profile Picture</label>
-            <div className="settingsPP">
-              <img src={ProfileImage} alt="" />
-              <label htmlFor="fileInput">
-                <i className="settingsPPIcon far fa-user-circle"></i>
-              </label>
-              <input
-                type="file"
-                id="fileInput"
-                style={{ display: "none" }}
-                onChange={(e) => {}}
-              />
-            </div>
             <label className="mt-2">Username</label>
             <input
               type="text"
