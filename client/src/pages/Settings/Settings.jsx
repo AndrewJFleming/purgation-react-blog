@@ -50,7 +50,7 @@ export default function Settings() {
             <span className="settingsDelete">Delete Account</span>
           </div>
           <form className="settingsForm" onSubmit={handleSubmit}>
-            <h5 className="serifTitle mt-4">Profile Picture</h5>
+            <label className="mt-2">Profile Picture</label>
             <div className="settingsPP">
               <img src={ProfileImage} alt="" />
               <label htmlFor="fileInput">
@@ -63,19 +63,19 @@ export default function Settings() {
                 onChange={(e) => {}}
               />
             </div>
-            <h5 className="serifTitle mt-4">Username</h5>
+            <label className="mt-2">Username</label>
             <input
               type="text"
               placeholder={user.username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <h5 className="serifTitle mt-4">Email</h5>
+            <label className="mt-2">Email</label>
             <input
               type="email"
               placeholder={user.email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <h5 className="serifTitle mt-4">Password</h5>
+            <label className="mt-2">Password</label>
             <input
               type="password"
               onChange={(e) => setPassword(e.target.value)}

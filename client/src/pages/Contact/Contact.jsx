@@ -46,7 +46,7 @@ export default function Contact() {
           </p>
           <form className="contactForm" onSubmit={handleSubmit}>
             <div className="contactFormGroup">
-              <h5 className="serifTitle">Subject</h5>
+              <label>Subject</label>
               <input
                 type="text"
                 placeholder="Subject"
@@ -56,7 +56,7 @@ export default function Contact() {
             </div>
             <div className="contactFormGroup d-flex justify-content-between">
               <div className="inputWrapper">
-                <h5 className="serifTitle mt-3">Name</h5>
+                <label>Name</label>
                 <input
                   type="text"
                   placeholder="Name"
@@ -65,7 +65,7 @@ export default function Contact() {
                 />
               </div>
               <div className="inputWrapper">
-                <h5 className="serifTitle mt-3">Email</h5>
+                <label>Email</label>
                 <input
                   type="text"
                   placeholder="Email"
@@ -75,7 +75,7 @@ export default function Contact() {
               </div>
             </div>
             <div className="contactFormGroup">
-              <h5 className="serifTitle mt-3">Message</h5>
+              <label>Message</label>
               <textarea
                 placeholder="Message..."
                 type="text"

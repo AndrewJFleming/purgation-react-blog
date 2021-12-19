@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
+import FileBase from "react-file-base64";
 
 import "./Write.css";
 import { Context } from "../../shared/context/Context";
@@ -12,7 +13,7 @@ import Sidebar from "../../shared/components/Sidebar/Sidebar";
 export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  // const [file, setFile] = useState(null);
+  const [photo, setPhoto] = useState("");
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState(false);
   const [error, setError] = useState(false);
@@ -28,6 +29,7 @@ export default function Write() {
       description,
       categories,
       featured,
+      photo: photo.image,
     };
     //Image upload logic
     try {
@@ -45,11 +47,7 @@ export default function Write() {
       <Row>
         <Col sm={12} md={8} className="pageLeft">
           <div className="writeImgWrapper">
-            <img
-              className="writeImg"
-              src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              alt=""
-            />
+            <img className="writeImg" src={photo.image} alt="" />
           </div>
           <h2 className="serifTitle mt-4">Write</h2>
 
@@ -73,7 +71,10 @@ export default function Write() {
                 placeholder="Title"
                 className="writeInput"
                 autoFocus={true}
-                onChange={(e) => setTitle(e.target.value)}
+                // onChange={(e) => setTitle(e.target.value)}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
               />
             </div>
             <div className="writeFormGroup">
@@ -88,6 +89,11 @@ export default function Write() {
             <AddCategories
               categories={categories}
               setCategories={setCategories}
+            />
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) => setPhoto({ image: base64 })}
             />
             <div className="submitWrapper">
               <button className="buttonSuccess" type="submit">

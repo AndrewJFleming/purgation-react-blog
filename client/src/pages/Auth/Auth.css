@@ -38,7 +38,7 @@
 
 .authButton:disabled {
   cursor: not-allowed;
-  background-color: rgb(252, 173, 173);
+  background-color: rgb(0, 0, 0);
 }
 
 .switchAuthButton {

@@ -15,6 +15,7 @@ export default function SinglePost() {
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [photo, setPhoto] = useState("");
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState(false);
   const [updateMode, setUpdateMode] = useState(false);
@@ -27,6 +28,7 @@ export default function SinglePost() {
       setPost(res.data);
       setTitle(res.data.title);
       setDescription(res.data.description);
+      setPhoto(res.data.photo);
       setCategories(res.data.categories);
       setFeatured(res.data.featured);
     };
@@ -72,11 +74,7 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostWrapper">
-      <img
-        className="singlePostImg"
-        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-        alt=""
-      />
+      <img className="singlePostImg" src={photo} alt="" />
       {updateMode ? (
         <input
           type="text"

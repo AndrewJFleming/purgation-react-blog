@@ -59,7 +59,7 @@ export default function TopNav() {
             className="d-inline-block align-top"
             alt="site logo"
           />
-          Purgation
+          <span className="serifTitle">PURGATION</span>
         </Navbar.Brand>
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
