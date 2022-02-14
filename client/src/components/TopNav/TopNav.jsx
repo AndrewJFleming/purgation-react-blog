@@ -76,11 +76,11 @@ export default function TopNav() {
             ) : (
               <React.Fragment>
                 <NavLink name="Login" path="/login" handler={handleCollapse} />
-                <NavLink
+                {/* <NavLink
                   name="Register"
                   path="/register"
                   handler={handleCollapse}
-                />
+                /> */}
               </React.Fragment>
             )}
           </Nav>

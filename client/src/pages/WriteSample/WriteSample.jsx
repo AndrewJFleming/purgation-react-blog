@@ -1,50 +1,93 @@
-import { useContext, useState } from "react";
-import axios from "axios";
+import { useState, useEffect, useRef } from "react";
 import FileBase from "react-file-base64";
+import { useLocation } from "react-router";
 
-import "./Write.css";
-import { Context } from "../../shared/context/Context";
-import { ErrorPrompt } from "../../shared/components/ErrorPrompt/ErrorPrompt";
+import "../Write/Write.css";
 import { AddCategories } from "../../shared/components/AddCategories/AddCategories";
 import { CheckFeatured } from "../../shared/components/CheckFeatured/CheckFeatured";
-import { Container, Row, Col } from "react-bootstrap";
+import { Overlay, Tooltip, Alert, Button, Container, Row, Col } from "react-bootstrap";
 import Sidebar from "../../shared/components/Sidebar/Sidebar";
 
-export default function Write() {
+function AlertDismissible() {
+  const [show, setShow] = useState(true);
+
+  return (
+    <>
+      <Alert show={show} variant="warning" 
+      style={{border: '1px solid #856404'}}
+    
+      >
+        <Alert.Heading>Write Page Sample</Alert.Heading>
+        <p>
+          This is sample version of the app's Write page. The functioning version of this component can be found <a href="https://github.com/AndrewJFleming/purgation-react-blog/blob/main/client/src/pages/Write/Write.jsx">here</a> on the project's GitHub repo.
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <Button onClick={() => setShow(false)} variant="warning">
+            Close
+          </Button>
+        </div>
+      </Alert>
+    </>
+  );
+}
+
+function ClickNotification() {
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+  useEffect(() => {
+    setShow(false)
+  }, []);
+
+const showTooltip = () => {
+  setShow(true)
+  setTimeout(function () {
+    setShow(false)
+  }, 3000);
+}
+
+  return (
+    <>
+      <button className="buttonSuccess" type="submit" ref={target} 
+      onClick={showTooltip}
+      >
+      Publish
+      </button>
+      <Overlay target={target.current} show={show} placement="left">
+        {(props) => (
+          <Tooltip className="pr-2" id="overlay-example" {...props}>
+            Submit disabled for sample
+          </Tooltip>
+        )}
+      </Overlay>
+    </>
+  );
+}
+
+const WriteSample = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
   const [categories, setCategories] = useState([]);
   const [featured, setFeatured] = useState(false);
-  const [error, setError] = useState(false);
-  const { user } = useContext(Context);
+  const location = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(false);
 
-    const newPost = {
-      username: user.username,
-      title,
-      description,
-      categories,
-      featured,
-      photo: photo.image,
-    };
-    try {
-      const res = await axios.post("/posts", newPost);
-      //Redirect to single post page with respective id
-      window.location.replace("/post/" + res.data._id);
-    } catch (err) {
-      console.log(err);
-      setError(true);
-    }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <Container className="page">
       <Row>
         <Col sm={12} md={8} className="pageLeft">
+      
+      <AlertDismissible/>
           {photo.image && (
             <div className="writeImgWrapper">
               <img className="writeImg" src={photo.image} alt="" />
@@ -84,10 +127,7 @@ export default function Write() {
               setCategories={setCategories}
             />
             <div className="submitWrapper">
-              <button className="buttonSuccess" type="submit">
-                Publish
-              </button>
-              {error && <ErrorPrompt />}
+              <ClickNotification/>
             </div>
           </form>
         </Col>
@@ -98,3 +138,5 @@ export default function Write() {
     </Container>
   );
 }
+
+export default WriteSample

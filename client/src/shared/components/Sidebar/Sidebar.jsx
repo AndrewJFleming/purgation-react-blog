@@ -40,12 +40,12 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW US</span>
         <div className="sidebarSocial">
-          <Link to="#" className="link">
+          <a href="https://github.com/AndrewJFleming" className="link">
             <i className="socialIcon fab fa-github-square"></i>
-          </Link>
-          <Link to="#" className="link">
+          </a>
+          <a href="https://www.linkedin.com/in/andrew-j-fleming-web-dev" className="link">
             <i className="socialIcon fab fa-linkedin-in"></i>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
