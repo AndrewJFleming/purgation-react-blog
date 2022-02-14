@@ -23,5 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 # images
-**/*.jpg
-**/*.png
+# **/*.jpg
+# **/*.png
+src/images/development-images
