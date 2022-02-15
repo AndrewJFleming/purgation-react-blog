@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/AndrewJFleming/embossed-react-ecommerce">
+  <a href="https://purgation-react-blog.netlify.app/">
     <img src="client/src/images/bigLogo.png" alt="Logo" height="200">
   </a>
 
@@ -13,6 +13,8 @@
     A blog app project built with the MERN stack.
     <br />
     <br />
+    <a href="https://purgation-react-blog.netlify.app/">Purgation React Blog (Netlify)</a>
+    ·
     <a href="https://www.linkedin.com/in/andrew-j-fleming-web-dev">My LinkedIn</a>
 </div>
 
@@ -49,11 +51,13 @@
 
 [![Project Screen Shot][project-screenshot]](https://github.com/AndrewJFleming/purgation-react-blog)
 
-A built this app to see if I could translate some of my WordPress development knowledge to React.js.
+A built this app to translate some of my WordPress theme development knowledge to React.js.
 
-You could describe the app as a _Medium clone_ in that it allows users to register accounts and author their own blog posts on the app. Only the authors can update or delete their respective blog posts.
+It allows users to register accounts and author their own blog posts on the app. Only the authors can update or delete their respective blog posts.
 
 Posts with truthy Featured Post values will are featured on the app's sidebar.
+
+_A version of <a href="https://purgation-react-blog.netlify.app/">Purgation React Blog</a> is hosted on Netlify._
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -102,6 +106,8 @@ Before you run the client app locally, you'll need to install its required depen
    npm install
    ```
 
+4. Rename the .env.example file in the client directory to .env
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -120,8 +126,6 @@ The client app uses a server to interact with its MongoDB database.
    npm start
    ```
 
-_In exploring the project files you'll notice that in App.js the Write component has been commented out and WriteSample compononent currently renders for the "/write" path. In running this project on your machine locally, use the Write component to restore the project to its fully functionality._
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -129,6 +133,8 @@ _In exploring the project files you'll notice that in App.js the Write component
 ## Roadmap
 
 - [ ] Create admin app for create, update, delete functionality.
+- [ ] Add delete account functionality for users.
+- [ ] Include server directory to repo.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

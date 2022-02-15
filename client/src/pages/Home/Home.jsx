@@ -20,7 +20,7 @@ export default function Home() {
       setLoading(true);
       //If the url includes a search param it'll be included with the request to the backend.
       //Response will only return data for posts matching search requirements.
-      const res = await axios.get("/posts" + search);
+      const res = await axios.get(process.env.REACT_APP_SERVER_URL + "/posts" + search);
 
       //Sort posts by newest date prior to setting state
       const postsDescending = res.data.sort(function (a, b) {

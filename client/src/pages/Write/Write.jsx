@@ -32,7 +32,7 @@ export default function Write() {
       photo: photo.image,
     };
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post(process.env.REACT_APP_SERVER_URL + "/posts", newPost);
       //Redirect to single post page with respective id
       window.location.replace("/post/" + res.data._id);
     } catch (err) {

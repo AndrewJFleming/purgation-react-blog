@@ -26,7 +26,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get(process.env.REACT_APP_SERVER_URL + "/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDescription(res.data.description);
@@ -42,7 +42,7 @@ export default function SinglePost() {
     try {
       //Unlike axios.post/axios.put, 2nd axios.delete param options, not the req body.
       //To send a req body with DELETE req, use the data option.
-      await axios.delete(`/posts/${post._id}`, {
+      await axios.delete(`${process.env.REACT_APP_SERVER_URL}/posts/${post._id}`, {
         data: { username: user.username },
       });
       //Redirect to the homepage if delete was successful
@@ -56,7 +56,7 @@ export default function SinglePost() {
   const handleUpdate = async () => {
     setError(false);
     try {
-      await axios.put(`/posts/${post._id}`, {
+      await axios.put(`${process.env.REACT_APP_SERVER_URL}/posts/${post._id}`, {
         username: user.username,
         title,
         description,

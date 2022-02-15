@@ -10,7 +10,7 @@ export default function Sidebar() {
 
   useEffect(() => {
     const getFeaturedPosts = async () => {
-      const res = await axios.get("/posts");
+      const res = await axios.get(process.env.REACT_APP_SERVER_URL + "/posts");
       const featured = res.data.filter((x) => !!x.featured);
       setFeaturedPosts(featured);
     };
