@@ -1,0 +1,16 @@
+import mongoose from "mongoose";
+
+const postSchema = mongoose.Schema(
+  {
+    //Marking it as 'unique' creates an index for the field, speeding up the querying process for it.
+    title: { type: String, required: true, unique: true },
+    description: { type: String, required: true },
+    photo: { type: String, required: false },
+    username: { type: String, required: true },
+    categories: { type: Array, required: false },
+    featured: { type: Boolean, default: false },
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("Post", postSchema);

@@ -39,7 +39,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#related-project">Related Project</a></li>
+    <li><a href="#related-projects">Related Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -135,12 +135,13 @@ The client app uses a server to interact with its MongoDB database.
 - [ ] Create admin app for create, update, delete functionality.
 - [ ] Add delete account functionality for users.
 - [ ] Include server directory to repo.
+- [ ] Remove category model from server.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-<!-- RELATED PROJECT -->
+<!-- RELATED PROJECTS -->
 ## Related Projects
 Checkout my other MERN stack projects. 
 

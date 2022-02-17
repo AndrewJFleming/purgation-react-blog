@@ -10,9 +10,9 @@ import Write from "./pages/Write/Write";
 import Single from "./pages/Single/Single";
 import Settings from "./pages/Settings/Settings";
 import Login from "./pages/Auth/Login";
-// import Register from "./pages/Auth/Register";
+import Register from "./pages/Auth/Register";
 import { Context } from "./shared/context/Context";
-import WriteSample from "./pages/WriteSample/WriteSample";
+// import WriteSample from "./pages/WriteSample/WriteSample";
 
 function App() {
   const { user } = useContext(Context);
@@ -30,16 +30,16 @@ function App() {
         <Route exact path="/contact">
           <Contact />
         </Route>
-        {/* <Route path="/register">
+        <Route path="/register">
           {!user ? <Register /> : <Redirect to="/" />}
-        </Route> */}
-        <Route path="/login">{!user ? <Login /> : <Redirect to="/" />}</Route>
-        <Route path="/write">
-          <WriteSample/>
         </Route>
+        <Route path="/login">{!user ? <Login /> : <Redirect to="/" />}</Route>
         {/* <Route path="/write">
-          {user ? <Write /> : <Redirect to="/login" />}
+          <WriteSample/>
         </Route> */}
+        <Route path="/write">
+          {user ? <Write /> : <Redirect to="/login" />}
+        </Route>
         <Route path="/settings">
           {user ? <Settings /> : <Redirect to="/login" />}
         </Route>
