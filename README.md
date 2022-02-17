@@ -39,7 +39,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#related-project">Related Project</a></li>
+    <li><a href="#related-projects">Related Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -140,7 +140,7 @@ The client app uses a server to interact with its MongoDB database.
 
 
 
-<!-- RELATED PROJECT -->
+<!-- RELATED PROJECTS -->
 ## Related Projects
 Checkout my other MERN stack projects. 
 
