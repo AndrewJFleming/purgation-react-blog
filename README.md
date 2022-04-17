@@ -18,8 +18,6 @@
     <a href="https://www.linkedin.com/in/andrew-j-fleming-web-dev">My LinkedIn</a>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -44,9 +42,8 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 [![Project Screen Shot][project-screenshot]](https://github.com/AndrewJFleming/purgation-react-blog)
@@ -61,47 +58,47 @@ _A version of <a href="https://purgation-react-blog.netlify.app/">Purgation Reac
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* [MongoDB](https://www.mongodb.com/)
-* [Express.js](https://expressjs.com/)
-* [React.js](https://reactjs.org/)
-* [Node.js](https://nodejs.org/)
-* [Bootstrap](https://getbootstrap.com)
+- [MongoDB](https://www.mongodb.com/)
+- [Express.js](https://expressjs.com/)
+- [React.js](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Bootstrap](https://getbootstrap.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
-Below you'll find some instructions on what you'll need to run the project locally on your machine, how to install the app and how to get the app running.
+Below you'll find some instructions on what you'll need to install the project and run it locally on your machine.
 
 ### Prerequisites
 
-* npm
+- npm
   ```sh
   npm install npm@latest -g
   ```
 
 ### Installation
 
-Before you run the client app locally, you'll need to install its required dependencies. 
+Before you run the client app locally, you'll need to install its required dependencies.
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
 
 2. Navigate to the desired directory.
+
    ```sh
    cd client
    ```
 
 3. Install NPM packages
+
    ```sh
    npm install
    ```
@@ -110,13 +107,14 @@ Before you run the client app locally, you'll need to install its required depen
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
+
 ## Usage
-The client app uses a server to interact with its MongoDB database. 
+
+The client app uses a server to interact with its MongoDB database.
 
 1. Start the client app locally.
+
    ```sh
    npm start
    ```
@@ -128,8 +126,8 @@ The client app uses a server to interact with its MongoDB database.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 - [ ] Create admin app for create, update, delete functionality.
@@ -139,29 +137,24 @@ The client app uses a server to interact with its MongoDB database.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- RELATED PROJECTS -->
+
 ## Related Projects
-Checkout my other MERN stack projects. 
+
+Checkout my other MERN stack projects.
 
 1. <a href="https://github.com/AndrewJFleming/critique-me">CritiqueMe Art Critique App</a>
 
 2. <a href="https://github.com/AndrewJFleming/embossed-react-ecommerce">Embossed React Ecommerce App</a>
 
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
 Andrew Fleming - [My LinkedIn](https://www.linkedin.com/in/andrew-j-fleming-web-dev) - aflemi1@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 [project-screenshot]: client/src/images/screenshot.png
